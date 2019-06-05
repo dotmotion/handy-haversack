@@ -1,4 +1,4 @@
-## D&amp;D Character Sheet web app
+## ![Dungeons & Dragons](https://github.com/dotmotion/handy-haversack/blob/master/assets/logos/5e%20Dungeons%20%26%20Dragons%20Logo.svg) Handy Haversack
 
 This is meant to be a simple javascript web app to create and manage your D&D characters.
 
@@ -30,3 +30,4 @@ This app should cover at least the basics on the 5e player's handbook and should
 - HTML/CSS template by [Brandon Fulljames](https://codepen.io/evertras/full/YVVeMd/)
 - [5e-database](https://github.com/adrpadua/5e-database) by [Adrian Padua](https://github.com/adrpadua)
 - [5e Vecor Icons](https://www.reddit.com/r/DnD/comments/4t57fn/dd_5e_vector_icons/) by [/u/morepurplemorebetter](https://www.reddit.com/user/morepurplemorebetter/)
+- Dungeons & Dragons, D&D, their respective logos, and all Wizards titles and characters are property of Wizards of the Coast LLC in the U.S.A. and other countries. ©2019 Wizards.
