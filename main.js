@@ -72,20 +72,26 @@ function profUpdate() {
   }
   skills.forEach(skill => {
     if (skill.name === name) {
-      mod += parseInt(
-        document.querySelector(`[name="${skill.attributes["data-mod"].value}"]`)
-          .value
-      );
+      let score = document.querySelector(
+        `[name="${skill.attributes["data-mod"].value}"]`
+      ).value;
+      if (score !== "") {
+        mod += parseInt(score);
+      }
       skill.value = mod >= 0 ? `+${mod}` : `${mod}`;
     }
   });
   saves.forEach(save => {
+    let score = "";
     if (save.name.split("-")[0] === name) {
       abilityScores.filter(ability => {
         if (ability.name.includes(name)) {
-          mod += parseInt(document.querySelector(`[name="${name}mod"]`).value);
+          score = document.querySelector(`[name="${name}mod"]`).value;
         }
       });
+      if (score !== "") {
+        mod += parseInt(score);
+      }
       save.value = mod >= 0 ? `+${mod}` : `${mod}`;
     }
   });
