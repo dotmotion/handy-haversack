@@ -218,6 +218,7 @@ form.charsheet
   li
   div.score
   input {
+  color: black;
   text-align: center;
   font-size: 40px;
   padding: 2px 0px 0px 0px;
