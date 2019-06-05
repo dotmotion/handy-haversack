@@ -1,3 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Slab", serif;
+}
+
+body {
+  background-color: white;
+}
+
 .red {
   background: red;
 }
@@ -82,7 +92,7 @@ form.charsheet label {
 }
 form.charsheet header {
   display: flex;
-  align-contents: stretch;
+  /* align-contents: stretch; */
   align-items: stretch;
 }
 form.charsheet header section.charname {
@@ -143,15 +153,18 @@ form.charsheet main div.label-container {
   border: 1px solid black;
   border-left: 0;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 form.charsheet main div.label-container > label {
-  position: absolute;
+  /* position: absolute;
   left: 0;
-  top: 1px;
-  -webkit-transform: translate(0%, 50%);
-          transform: translate(0%, 50%);
+  top: 1px; */
+  /* -webkit-transform: translate(0%, 50%);
+  transform: translate(0%, 50%); */
   width: 100%;
-  font-size: 8px;
+  font-size: 10px;
 }
 form.charsheet main > section {
   width: 32%;
@@ -165,13 +178,13 @@ form.charsheet main > section section.attributes {
   justify-content: space-between;
 }
 form.charsheet main > section section.attributes div.scores {
-  width: 101px;
-  background-color: #bbb;
-  border-radius: 10px;
+  width: 100px;
+  /* background-color: #bbb; */
+  border-radius: 7px;
   padding-bottom: 5px;
 }
 form.charsheet main > section section.attributes div.scores label {
-  font-size: 8px;
+  font-size: 14px;
   font-weight: bold;
 }
 form.charsheet main > section section.attributes div.scores ul {
@@ -185,7 +198,7 @@ form.charsheet main > section section.attributes div.scores ul li {
   height: 80px;
   width: 70px;
   background-color: white;
-  border: 1px solid black;
+  border: 1.5px solid black;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -196,55 +209,106 @@ form.charsheet main > section section.attributes div.scores ul li input {
   padding: 0;
   border: 0;
 }
-form.charsheet main > section section.attributes div.scores ul li div.score input {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.scores
+  ul
+  li
+  div.score
+  input {
+  color: black;
   text-align: center;
   font-size: 40px;
   padding: 2px 0px 0px 0px;
-  background: white;
+  background: transparent;
 }
 form.charsheet main > section section.attributes div.scores ul li div.modifier {
-  margin-top: 3px;
+  margin-top: -7px;
 }
-form.charsheet main > section section.attributes div.scores ul li div.modifier input {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.scores
+  ul
+  li
+  div.modifier
+  input {
   background: white;
   width: 30px;
   height: 20px;
-  border: 1px inset black;
+  border: 1px solid black;
   border-radius: 20px;
   margin: -1px;
   text-align: center;
+  box-shadow: inset 0px 0px 0px 0px red;
 }
-form.charsheet main > section section.attributes div.attr-applications div.inspiration {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.attr-applications
+  div.inspiration {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
 }
-form.charsheet main > section section.attributes div.attr-applications div.inspiration input {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.attr-applications
+  div.inspiration
+  input {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border: 1px solid black;
   padding: 15px;
   border-radius: 10px;
 }
-form.charsheet main > section section.attributes div.attr-applications div.proficiencybonus {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.attr-applications
+  div.proficiencybonus {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
 }
-form.charsheet main > section section.attributes div.attr-applications div.proficiencybonus input {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.attr-applications
+  div.proficiencybonus
+  input {
   width: 30px;
   height: 28px;
   border: 1px solid black;
   text-align: center;
   border-radius: 10px;
 }
-form.charsheet main > section section.attributes div.attr-applications div.list-section {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.attr-applications
+  div.list-section {
   border: 1px solid black;
   border-radius: 10px;
   padding: 10px 5px;
 }
-form.charsheet main > section section.attributes div.attr-applications div.list-section div.label {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.attr-applications
+  div.list-section
+  div.label {
   margin-top: 10px;
   margin-bottom: 2.5px;
   text-align: center;
@@ -252,23 +316,63 @@ form.charsheet main > section section.attributes div.attr-applications div.list-
   font-size: 10px;
   font-weight: bold;
 }
-form.charsheet main > section section.attributes div.attr-applications div.list-section ul li {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.attr-applications
+  div.list-section
+  ul
+  li {
   display: flex;
   align-items: center;
 }
-form.charsheet main > section section.attributes div.attr-applications div.list-section ul li > * {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.attr-applications
+  div.list-section
+  ul
+  li
+  > * {
   margin-left: 5px;
 }
-form.charsheet main > section section.attributes div.attr-applications div.list-section ul li label {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.attr-applications
+  div.list-section
+  ul
+  li
+  label {
   text-transform: none;
   font-size: 8px;
   text-align: left;
   order: 3;
 }
-form.charsheet main > section section.attributes div.attr-applications div.list-section ul li label span.skill {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.attr-applications
+  div.list-section
+  ul
+  li
+  label
+  span.skill {
   color: #bbb;
 }
-form.charsheet main > section section.attributes div.attr-applications div.list-section ul li input[type="text"] {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.attr-applications
+  div.list-section
+  ul
+  li
+  input[type="text"] {
   width: 30px;
   font-size: 12px;
   text-align: center;
@@ -276,17 +380,33 @@ form.charsheet main > section section.attributes div.attr-applications div.list-
   border-bottom: 1px solid black;
   order: 2;
 }
-form.charsheet main > section section.attributes div.attr-applications div.list-section ul li input[type="checkbox"] {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.attr-applications
+  div.list-section
+  ul
+  li
+  input[type="checkbox"] {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 10px;
   height: 10px;
   border: 1px solid black;
   border-radius: 10px;
   order: 1;
 }
-form.charsheet main > section section.attributes div.attr-applications div.list-section ul li input[type="checkbox"]:checked {
+form.charsheet
+  main
+  > section
+  section.attributes
+  div.attr-applications
+  div.list-section
+  ul
+  li
+  input[type="checkbox"]:checked {
   background-color: black;
 }
 form.charsheet main > section div.passive-perception {
@@ -313,16 +433,22 @@ form.charsheet main section.combat {
 form.charsheet main section.combat > div {
   overflow: hidden;
 }
-form.charsheet main section.combat > div.armorclass, form.charsheet main section.combat > div.initiative, form.charsheet main section.combat > div.speed {
+form.charsheet main section.combat > div.armorclass,
+form.charsheet main section.combat > div.initiative,
+form.charsheet main section.combat > div.speed {
   flex-basis: 33.333%;
 }
-form.charsheet main section.combat > div.armorclass > div, form.charsheet main section.combat > div.initiative > div, form.charsheet main section.combat > div.speed > div {
+form.charsheet main section.combat > div.armorclass > div,
+form.charsheet main section.combat > div.initiative > div,
+form.charsheet main section.combat > div.speed > div {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   margin-top: 10px;
 }
-form.charsheet main section.combat > div.armorclass > div label, form.charsheet main section.combat > div.initiative > div label, form.charsheet main section.combat > div.speed > div label {
+form.charsheet main section.combat > div.armorclass > div label,
+form.charsheet main section.combat > div.initiative > div label,
+form.charsheet main section.combat > div.speed > div label {
   font-size: 8px;
   width: 50px;
   border: 1px solid black;
@@ -333,7 +459,9 @@ form.charsheet main section.combat > div.armorclass > div label, form.charsheet 
   padding-bottom: 5px;
   border-radius: 0 0 10px 10px;
 }
-form.charsheet main section.combat > div.armorclass > div input, form.charsheet main section.combat > div.initiative > div input, form.charsheet main section.combat > div.speed > div input {
+form.charsheet main section.combat > div.armorclass > div input,
+form.charsheet main section.combat > div.initiative > div input,
+form.charsheet main section.combat > div.speed > div input {
   height: 70px;
   width: 70px;
   border-radius: 10px;
@@ -383,7 +511,7 @@ form.charsheet main section.combat > div.hp > div.regular > div.current label {
   font-size: 10px;
   padding-bottom: 5px;
   text-align: center;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 form.charsheet main section.combat > div.hp > div.temporary {
   margin: 10px;
@@ -404,13 +532,15 @@ form.charsheet main section.combat > div.hp > div.temporary label {
   font-size: 10px;
   padding-bottom: 5px;
   text-align: center;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
-form.charsheet main section.combat > div.hitdice, form.charsheet main section.combat > div.deathsaves {
+form.charsheet main section.combat > div.hitdice,
+form.charsheet main section.combat > div.deathsaves {
   flex: 1 50%;
   height: 100px;
 }
-form.charsheet main section.combat > div.hitdice > div, form.charsheet main section.combat > div.deathsaves > div {
+form.charsheet main section.combat > div.hitdice > div,
+form.charsheet main section.combat > div.deathsaves > div {
   height: 80px;
 }
 form.charsheet main section.combat > div.hitdice > div {
@@ -478,11 +608,39 @@ form.charsheet main section.combat > div.deathsaves > div > div.marks {
   flex-direction: column;
   justify-content: center;
 }
-form.charsheet main section.combat > div.deathsaves > div > div.marks div.deathsuccesses, form.charsheet main section.combat > div.deathsaves > div > div.marks div.deathfails {
+form.charsheet
+  main
+  section.combat
+  > div.deathsaves
+  > div
+  > div.marks
+  div.deathsuccesses,
+form.charsheet
+  main
+  section.combat
+  > div.deathsaves
+  > div
+  > div.marks
+  div.deathfails {
   display: flex;
   align-items: center;
 }
-form.charsheet main section.combat > div.deathsaves > div > div.marks div.deathsuccesses label, form.charsheet main section.combat > div.deathsaves > div > div.marks div.deathfails label {
+form.charsheet
+  main
+  section.combat
+  > div.deathsaves
+  > div
+  > div.marks
+  div.deathsuccesses
+  label,
+form.charsheet
+  main
+  section.combat
+  > div.deathsaves
+  > div
+  > div.marks
+  div.deathfails
+  label {
   font-size: 8px;
   text-align: right;
   flex: 1 50%;
@@ -491,16 +649,28 @@ form.charsheet main section.combat > div.deathsaves > div div.bubbles {
   flex: 1 40%;
   margin-left: 5px;
 }
-form.charsheet main section.combat > div.deathsaves > div div.bubbles input[type="checkbox"] {
+form.charsheet
+  main
+  section.combat
+  > div.deathsaves
+  > div
+  div.bubbles
+  input[type="checkbox"] {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 10px;
   height: 10px;
   border: 1px solid black;
   border-radius: 10px;
 }
-form.charsheet main section.combat > div.deathsaves > div div.bubbles input[type="checkbox"]:checked {
+form.charsheet
+  main
+  section.combat
+  > div.deathsaves
+  > div
+  div.bubbles
+  input[type="checkbox"]:checked {
   background-color: black;
 }
 form.charsheet main section.attacksandspellcasting {
@@ -525,7 +695,7 @@ form.charsheet main section.attacksandspellcasting > div > table th {
   color: #ddd;
 }
 form.charsheet main section.attacksandspellcasting > div > table input {
-  width: calc(100% - 4px);
+  width: calc(100% - 7px);
   border: 0;
   background-color: #eee;
   font-size: 10px;
