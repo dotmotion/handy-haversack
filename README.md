@@ -12,7 +12,7 @@ This app should cover at least the basics on the 5e player's handbook and should
 
    For this we'll be using the [5e-database](https://github.com/adrpadua/5e-database) with a few modifications
 
-2. Load an existin character and play with it
+2. Load an existing character and play with it
 
    When loading a charachter in JSON format, it will populate the sheet and will have links to spells, items and equipment (with descriptions when available)
 
@@ -29,3 +29,4 @@ This app should cover at least the basics on the 5e player's handbook and should
 
 - HTML/CSS template by [Brandon Fulljames](https://codepen.io/evertras/full/YVVeMd/)
 - [5e-database](https://github.com/adrpadua/5e-database) by [Adrian Padua](https://github.com/adrpadua)
+- [5e Vecor Icons](https://www.reddit.com/r/DnD/comments/4t57fn/dd_5e_vector_icons/) by [/u/morepurplemorebetter](https://www.reddit.com/user/morepurplemorebetter/)
