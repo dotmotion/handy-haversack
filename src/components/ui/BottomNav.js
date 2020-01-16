@@ -65,6 +65,7 @@ export default function BottomNav(props) {
         }}
         showLabels={false}
         className={classes.root}
+        color={"secondary"}
       >
         <BottomNavigationAction label="Character" icon={<PersonIcon />} />
         <BottomNavigationAction label="Combat" icon={<SportsKabaddiIcon />} />
