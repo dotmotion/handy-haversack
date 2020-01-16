@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/handy-haversack/static/css/main.dd50b228.chunk.css",
+    "main.js": "/handy-haversack/static/js/main.e0541fbb.chunk.js",
+    "main.js.map": "/handy-haversack/static/js/main.e0541fbb.chunk.js.map",
+    "runtime-main.js": "/handy-haversack/static/js/runtime-main.3cee07db.js",
+    "runtime-main.js.map": "/handy-haversack/static/js/runtime-main.3cee07db.js.map",
+    "static/js/2.111f773d.chunk.js": "/handy-haversack/static/js/2.111f773d.chunk.js",
+    "static/js/2.111f773d.chunk.js.map": "/handy-haversack/static/js/2.111f773d.chunk.js.map",
+    "index.html": "/handy-haversack/index.html",
+    "precache-manifest.480f60312a2f6bf1297f2354bb1c70c0.js": "/handy-haversack/precache-manifest.480f60312a2f6bf1297f2354bb1c70c0.js",
+    "service-worker.js": "/handy-haversack/service-worker.js",
+    "static/css/main.dd50b228.chunk.css.map": "/handy-haversack/static/css/main.dd50b228.chunk.css.map",
+    "static/js/2.111f773d.chunk.js.LICENSE": "/handy-haversack/static/js/2.111f773d.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3cee07db.js",
+    "static/js/2.111f773d.chunk.js",
+    "static/css/main.dd50b228.chunk.css",
+    "static/js/main.e0541fbb.chunk.js"
+  ]
+}
