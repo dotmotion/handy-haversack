@@ -33,7 +33,7 @@ class Search extends Component {
       selected: null,
       modal: false,
       searchfield: "",
-      api: "http://www.dnd5eapi.co"
+      api: "https://www.dnd5eapi.co"
     };
   }
 
