@@ -37,7 +37,7 @@ export default function AppDrawer(props) {
             className={classes.menuButton}
             color="secondary"
             aria-label="menu"
-            onClick={e => props.drawer(e)}
+            // onClick={e => props.drawer(e)}
           >
             <MenuIcon />
           </IconButton>
