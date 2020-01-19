@@ -44,8 +44,14 @@ class Search extends Component {
 
   request = async url => {
     const { api } = this.state;
-    const res = await axios.get(`${api}${url}`);
-    return res.data;
+    let data;
+    await axios
+      .get(`${api}${url}`)
+      .then(res => {
+        data = res.data;
+      })
+      .catch(e => console.error(e));
+    return data;
   };
 
   openModal = async spell => {
