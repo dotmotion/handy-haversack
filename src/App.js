@@ -21,7 +21,7 @@ class App extends Component {
     super(props);
     this.state = {
       character: {},
-      page: "search",
+      page: "Spells",
       drawer: false
     };
   }
