@@ -1,133 +1,101 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
-import MuiDialogTitle from "@material-ui/core/DialogTitle";
-import MuiDialogContent from "@material-ui/core/DialogContent";
-import Slide from "@material-ui/core/Slide";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
+import CloseIcon from "@material-ui/icons/Close";
+import Slide from "@material-ui/core/Slide";
 
-const styles = theme => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(2)
+const useStyles = makeStyles(theme => ({
+  appBar: {
+    position: "relative",
+    backgroundColor: "var(--main)"
   },
-  closeButton: {
-    position: "absolute",
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-    color: theme.palette.grey[500]
-  },
-  dialogPaper: {
-    maxHeight: "80vh"
+  title: {
+    marginLeft: -theme.spacing(2),
+    flex: 1,
+    textAlign: "center"
   }
-});
+}));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const DialogTitle = withStyles(styles)(props => {
-  const { children, classes, onClose, ...other } = props;
-  return (
-    <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
-    </MuiDialogTitle>
-  );
-});
-
-const DialogContent = withStyles(theme => ({
-  root: {
-    padding: theme.spacing(2)
-  }
-}))(MuiDialogContent);
-
-const SpellCard = props => {
-  const { spell, classes } = props;
-  console.log("TCL: spell", spell);
-  const [open, setOpen] = React.useState(props.open);
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+export default function SpellCard2(props) {
+  const { spell, open } = props;
+  const classes = useStyles();
 
   return (
-    <div>
-      <Dialog
-        onClose={props.close}
-        // className={{ paper: classes.dialogPaper }}
-        TransitionComponent={Transition}
-        open={open}
-        maxWidth="md"
-        fullWidth={true}
-      >
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between"
-            }}
+    <Dialog
+      fullScreen
+      open={open}
+      onClose={props.close}
+      TransitionComponent={Transition}
+    >
+      <AppBar className={classes.appBar}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            onClick={props.close}
+            aria-label="close"
           >
-            <div className="column">
-              <Typography variant="h5">{spell.name}</Typography>
-              <span
-                style={{ fontSize: "12px", fontWeight: "600", color: "gray" }}
-              >
-                {spell.school.name}
-              </span>
-            </div>
-            <div
-              className="column"
-              style={{ fontSize: "12px", fontWeight: "600", color: "gray" }}
-            ></div>
-            <div
-              className="column"
-              style={{
-                fontSize: "12px",
-                fontWeight: "600",
-                color: "gray",
-                alignItems: "flex-end"
-              }}
-            >
-              <div className="row">
-                <span style={{ color: "black" }}>{"Range: "}</span>
-                <span>{spell.range}</span>
-              </div>
-              <div className="row">
-                <span style={{ color: "black" }}>{"Cast time: "}</span>
-                <span>{spell.casting_time}</span>
-              </div>
-              <div className="row">
-                <span style={{ color: "black" }}>{"Duration: "}</span>
-                <span>{spell.duration}</span>
-              </div>
-            </div>
-          </div>
-        </DialogTitle>
-        <DialogContent dividers>
-          <Typography variant="h6" gutterBottom>
-            Description:
+            <CloseIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            {spell.name}
           </Typography>
+        </Toolbar>
+      </AppBar>
+      <div className="spell-card-content">
+        <div className="spell-box">
+          <span className="bold">{"Level: "}</span>
+          {spell.level}
+        </div>
+        <div className="spell-box">
+          <span className="bold">{"Cast time: "}</span>
+          {spell.casting_time}
+        </div>
+        <div className="spell-box">
+          <span className="bold">{"Range: "}</span>
+          {spell.range}
+        </div>
+        <div className="spell-box">
+          <span className="bold">{"Components: "}</span>
+          {spell.components}
+        </div>
+        <div className="spell-box">
+          <span className="bold">{"Duration: "}</span>
+          {spell.duration}
+        </div>
+        <div className="spell-box">
+          <span className="bold">{"School: "}</span>
+          {spell.school.name}
+        </div>
+        <div className="spell-box">
           {spell.desc.map(section => (
-            <Typography variant="body2" gutterBottom key={section}>
-              {section}
-            </Typography>
+            <p>{section}</p>
           ))}
           {spell.higher_level && (
             <>
-              <Typography variant="h6" gutterBottom>
-                Higher Level:
-              </Typography>
-              <Typography variant="body2" gutterBottom>
+              <p>
+                <span className="bold">{"At Higher Levels. "}</span>{" "}
                 {spell.higher_level}
-              </Typography>
+              </p>
             </>
           )}
-        </DialogContent>
-      </Dialog>
-    </div>
+          {spell.material && (
+            <p>
+              <span className="bold">{"Material: "}</span>
+              {spell.material}
+            </p>
+          )}
+        </div>
+        <div className="page">{`[ ${spell.page} ]`}</div>
+      </div>
+    </Dialog>
   );
-};
-
-export default withStyles(styles)(SpellCard);
+}
