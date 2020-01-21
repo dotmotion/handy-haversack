@@ -6,7 +6,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
-import Slide from "@material-ui/core/Slide";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -20,12 +19,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-
 export default function SpellCard2(props) {
-  const { spell, open } = props;
+  const { spell, open, trans } = props;
   const classes = useStyles();
 
   return (
@@ -33,7 +28,7 @@ export default function SpellCard2(props) {
       fullScreen
       open={open}
       onClose={props.close}
-      TransitionComponent={Transition}
+      TransitionComponent={trans}
     >
       <AppBar className={classes.appBar}>
         <Toolbar>
@@ -77,7 +72,7 @@ export default function SpellCard2(props) {
         </div>
         <div className="spell-box">
           {spell.desc.map(section => (
-            <p>{section}</p>
+            <p key={section}>{section}</p>
           ))}
           {spell.higher_level && (
             <>

@@ -1,13 +1,18 @@
 import React, { Component } from "react";
-import axios from "axios";
+
 import { spells } from "../assets/db/spells";
+import D20 from "../assets/d20.svg";
+import { request, sortByClass, sortByLevel, sortBySchool } from "../utils/lib";
 
 import SpellCard from "../components/ui/SpellCard";
+import FilterFab from "../components/ui/FilterFab";
+import ExpPanel from "../components/ui/ExpPanel";
 
-import TextField from "@material-ui/core/TextField";
-import ClearIcon from "@material-ui/icons/Clear";
-import { IconButton } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
+import Slide from "@material-ui/core/Slide";
+import { IconButton } from "@material-ui/core";
+import ClearIcon from "@material-ui/icons/Clear";
+import TextField from "@material-ui/core/TextField";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
@@ -35,39 +40,62 @@ const styles = {
     color: "white"
   }
 };
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 class Search extends Component {
   constructor() {
     super();
     this.state = {
-      spells: spells,
+      loaded: false,
+      spells,
       selected: null,
       modal: false,
+      filter: "spells",
       searchfield: "",
-      api: "https://www.dnd5eapi.co"
+      spellsByClass: {},
+      spellsByLevel: {},
+      spellsBySchool: {},
+      classList: [],
+      schoolList: []
     };
   }
 
   componentWillMount = async () => {
-    // const res = await this.request("/api/spells");
-    // this.setState({ spells: res.results });
+    const { spells } = this.state;
+
+    const spellsByClass = await sortByClass(spells);
+    const spellsByLevel = await sortByLevel(spells);
+    const spellsBySchool = await sortBySchool(spells);
+
+    this.setState({
+      spellsByClass,
+      spellsByLevel,
+      spellsBySchool
+    });
+
+    this.getLists(spellsByClass, spellsBySchool);
   };
 
-  request = async url => {
-    const { api } = this.state;
-    let data;
-    await axios
-      .get(`${api}${url}`)
-      .then(res => {
-        data = res.data;
-      })
-      .catch(e => console.error(e));
-    return data;
+  getLists = (spellsByClass, spellsBySchool) => {
+    const classList = Object.keys(spellsByClass);
+    const schoolList = Object.keys(spellsBySchool);
+
+    this.setState({
+      classList,
+      schoolList,
+      loaded: true
+    });
   };
 
   openModal = async spell => {
-    const res = await this.request(spell.url);
+    const res = await request(spell.url);
     this.setState({ modal: true, selected: res });
+  };
+
+  setFilter = selection => {
+    this.setState({ filter: selection });
   };
 
   closeModal = () => {
@@ -75,65 +103,135 @@ class Search extends Component {
   };
 
   onSearchChange = e => {
-    this.setState({ searchfield: e.target.value });
-  };
-
-  onSearchClear = () => {
-    this.setState({ searchfield: "" });
+    this.setState({ searchfield: e ? e.target.value : "" });
   };
 
   render() {
-    const { spells, modal, selected, searchfield } = this.state;
+    const { spells, modal, selected, searchfield, filter, loaded } = this.state;
+    const { spellsByClass, spellsByLevel, spellsBySchool } = this.state;
+    const { schoolList, classList } = this.state;
     const { classes } = this.props;
+    let filteredSpells;
 
-    const filteredSpells = spells.filter(spell => {
-      return spell.name
-        .toLowerCase()
-        .includes(this.state.searchfield.toLowerCase());
-    });
+    switch (filter) {
+      case "spells":
+        filteredSpells = spells.filter(spell => {
+          return spell.name.toLowerCase().includes(searchfield.toLowerCase());
+        });
+        break;
+      case "class":
+        filteredSpells = {};
+        classList.forEach(c => {
+          filteredSpells[c] = spellsByClass[c].filter(spell => {
+            return spell.name.toLowerCase().includes(searchfield.toLowerCase());
+          });
+        });
+        break;
+      case "level":
+        ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].map(num => {
+          filteredSpells[num] = spellsByLevel[num].filter(spell => {
+            return spell.name.toLowerCase().includes(searchfield.toLowerCase());
+          });
+          return null;
+        });
+        break;
+      case "school":
+        filteredSpells = {};
+        schoolList.map(c => {
+          filteredSpells[c] = spellsBySchool[c].filter(spell => {
+            return spell.name.toLowerCase().includes(searchfield.toLowerCase());
+          });
+          return null;
+        });
+        break;
+      default:
+        break;
+    }
+
     return (
-      <div className="list">
-        <header
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            margin: "15px 30px 0px 20px"
-          }}
-        >
-          <TextField
-            placeholder="Search"
-            type="search"
-            fullWidth
-            InputProps={{
-              className: classes.input,
-              endAdornment: (
-                <IconButton onClick={this.onSearchClear} size="small">
-                  {searchfield !== "" && (
-                    <ClearIcon style={{ color: "var(--txt2)" }} />
-                  )}
-                </IconButton>
-              )
-            }}
-            className={classes.root}
-            onChange={e => this.onSearchChange(e)}
-            value={searchfield}
-          />
-        </header>
-        {modal && (
-          <SpellCard spell={selected} open={modal} close={this.closeModal} />
+      <>
+        {loaded ? (
+          <div className="list">
+            <FilterFab setFilter={this.setFilter} />
+            <header className="search-header">
+              <TextField
+                placeholder="Search"
+                type="search"
+                fullWidth
+                InputProps={{
+                  className: classes.input,
+                  endAdornment: (
+                    <IconButton
+                      onClick={() => this.onSearchChange()}
+                      size="small"
+                    >
+                      {searchfield !== "" && (
+                        <ClearIcon style={{ color: "var(--txt2)" }} />
+                      )}
+                    </IconButton>
+                  )
+                }}
+                className={classes.root}
+                onChange={e => this.onSearchChange(e)}
+                value={searchfield}
+              />
+            </header>
+            {modal && (
+              <SpellCard
+                spell={selected}
+                open={modal}
+                close={this.closeModal}
+                trans={Transition}
+              />
+            )}
+            {filter === "spells" &&
+              filteredSpells.map(spell => (
+                <Paper
+                  elevation={5}
+                  className="list-paper"
+                  onClick={() => this.openModal(spell)}
+                  key={spell.name}
+                >
+                  {spell.name}
+                </Paper>
+              ))}
+
+            {filter === "class" &&
+              classList.map(c => (
+                <ExpPanel
+                  key={c}
+                  name={c}
+                  spells={filteredSpells[c]}
+                  onClick={this.openModal}
+                />
+              ))}
+
+            {filter === "school" &&
+              schoolList.map(s => (
+                <ExpPanel
+                  key={s}
+                  name={s}
+                  spells={filteredSpells[s]}
+                  onClick={this.openModal}
+                />
+              ))}
+
+            {filter === "level" &&
+              [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(l => (
+                <ExpPanel
+                  key={l}
+                  name={l === 0 ? "Cantrips" : `Level ${l}`}
+                  spells={filteredSpells[l]}
+                  onClick={this.openModal}
+                />
+              ))}
+          </div>
+        ) : (
+          <div className="wait">
+            <img src={D20} alt="" className="d20" />
+          </div>
         )}
-        {filteredSpells.map(spell => (
-          <Paper
-            elevation={5}
-            className="list-paper"
-            onClick={() => this.openModal(spell)}
-            key={spell.name}
-          >
-            {spell.name}
-          </Paper>
-        ))}
-      </div>
+      </>
     );
   }
 }
