@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { spells } from "../assets/db/spells";
 
 import SpellCard from "../components/ui/SpellCard";
 
@@ -9,15 +10,23 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
   root: {
-    "& label.Mui-focused": {
+    "& placeholder.Mui-focused": {
       color: "#fff"
     },
+    "& .MuiInputBase-input": {
+      color: "var(--txt2)"
+    },
     "& .MuiInput-underline:after": {
-      borderBottomColor: "#fff"
+      borderBottomColor: "var(--txt2)"
+    },
+    "& .MuiInput-underline:before": {
+      borderBottom: "2px solid var(--light)"
     }
   },
   input: {
-    color: "white",
+    color: "var(--txt2)",
+    fontWeight: 600,
+    fontSize: 20,
     margin: 5
   },
   label: {
@@ -29,7 +38,7 @@ class Search extends Component {
   constructor() {
     super();
     this.state = {
-      spells: [],
+      spells: spells,
       selected: null,
       modal: false,
       searchfield: "",
@@ -38,8 +47,8 @@ class Search extends Component {
   }
 
   componentWillMount = async () => {
-    const res = await this.request("/api/spells");
-    this.setState({ spells: res.results });
+    // const res = await this.request("/api/spells");
+    // this.setState({ spells: res.results });
   };
 
   request = async url => {
@@ -83,12 +92,13 @@ class Search extends Component {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            marginTop: 10
+            margin: "15px 30px 0px 20px"
           }}
         >
           <TextField
             placeholder="Search"
             type="search"
+            fullWidth
             InputProps={{
               className: classes.input
             }}
@@ -102,7 +112,7 @@ class Search extends Component {
         {filteredSpells.map(spell => (
           <Paper
             elevation={5}
-            className="paper"
+            className="list-paper"
             onClick={() => this.openModal(spell)}
             key={spell.name}
           >
