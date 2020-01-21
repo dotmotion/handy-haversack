@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import axios from "axios";
+
 import { spells } from "../assets/db/spells";
+import { request, sortByClass, sortByLevel, sortBySchool } from "../utils/lib";
 
 import SpellCard from "../components/ui/SpellCard";
 
 import TextField from "@material-ui/core/TextField";
 import ClearIcon from "@material-ui/icons/Clear";
+import SortIcon from "@material-ui/icons/Sort";
 import { IconButton } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
@@ -44,29 +46,24 @@ class Search extends Component {
       selected: null,
       modal: false,
       searchfield: "",
-      api: "https://www.dnd5eapi.co"
+      spellsByClass: {},
+      spellsByLevel: {},
+      spellsBySchool: {}
     };
   }
 
   componentWillMount = async () => {
-    // const res = await this.request("/api/spells");
-    // this.setState({ spells: res.results });
-  };
+    const { spells } = this.state;
 
-  request = async url => {
-    const { api } = this.state;
-    let data;
-    await axios
-      .get(`${api}${url}`)
-      .then(res => {
-        data = res.data;
-      })
-      .catch(e => console.error(e));
-    return data;
+    const spellsByClass = await sortByClass(spells);
+    const spellsByLevel = await sortByLevel(spells);
+    const spellsBySchool = await sortBySchool(spells);
+
+    this.setState({ spellsByClass, spellsByLevel, spellsBySchool });
   };
 
   openModal = async spell => {
-    const res = await this.request(spell.url);
+    const res = await request(spell.url);
     this.setState({ modal: true, selected: res });
   };
 
@@ -75,11 +72,7 @@ class Search extends Component {
   };
 
   onSearchChange = e => {
-    this.setState({ searchfield: e.target.value });
-  };
-
-  onSearchClear = () => {
-    this.setState({ searchfield: "" });
+    this.setState({ searchfield: e ? e.target.value : "" });
   };
 
   render() {
@@ -108,7 +101,7 @@ class Search extends Component {
             InputProps={{
               className: classes.input,
               endAdornment: (
-                <IconButton onClick={this.onSearchClear} size="small">
+                <IconButton onClick={() => this.onSearchChange()} size="small">
                   {searchfield !== "" && (
                     <ClearIcon style={{ color: "var(--txt2)" }} />
                   )}
@@ -119,6 +112,13 @@ class Search extends Component {
             onChange={e => this.onSearchChange(e)}
             value={searchfield}
           />
+          <IconButton
+            onClick={() => console.log("lol")}
+            size="small"
+            style={{ marginLeft: 10 }}
+          >
+            <SortIcon style={{ color: "var(--txt2)" }} />
+          </IconButton>
         </header>
         {modal && (
           <SpellCard spell={selected} open={modal} close={this.closeModal} />
