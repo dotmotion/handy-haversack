@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import BottomNav from "./components/ui/BottomNav";
 import AppDrawer from "./components/ui/AppDrawer";
-import Character from "./pages/Character";
+// import BottomNav from "./components/ui/BottomNav";
+// import Character from "./pages/Character";
 import Search from "./pages/Search";
 
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
