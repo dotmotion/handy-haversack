@@ -46,7 +46,7 @@ const useStyles = makeStyles(() => ({
     flexGrow: 1
   },
   speedDial: {
-    position: "absolute",
+    position: "fixed",
     display: "flex",
     bottom: "21px",
     right: "21px",
