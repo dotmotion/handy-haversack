@@ -5,6 +5,8 @@ import { spells } from "../assets/db/spells";
 import SpellCard from "../components/ui/SpellCard";
 
 import TextField from "@material-ui/core/TextField";
+import ClearIcon from "@material-ui/icons/Clear";
+import { IconButton } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -76,8 +78,12 @@ class Search extends Component {
     this.setState({ searchfield: e.target.value });
   };
 
+  onSearchClear = () => {
+    this.setState({ searchfield: "" });
+  };
+
   render() {
-    const { spells, modal, selected } = this.state;
+    const { spells, modal, selected, searchfield } = this.state;
     const { classes } = this.props;
 
     const filteredSpells = spells.filter(spell => {
@@ -100,10 +106,18 @@ class Search extends Component {
             type="search"
             fullWidth
             InputProps={{
-              className: classes.input
+              className: classes.input,
+              endAdornment: (
+                <IconButton onClick={this.onSearchClear} size="small">
+                  {searchfield !== "" && (
+                    <ClearIcon style={{ color: "var(--txt2)" }} />
+                  )}
+                </IconButton>
+              )
             }}
             className={classes.root}
             onChange={e => this.onSearchChange(e)}
+            value={searchfield}
           />
         </header>
         {modal && (
