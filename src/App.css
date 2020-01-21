@@ -1,3 +1,17 @@
+* {
+  --main: #272f3d;
+  --dark: #1c2129;
+  --light: #4c576a;
+  --txt: #ffffff;
+  --txt2: #8b91ac;
+  margin: 0;
+  padding: 0;
+}
+
+p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 .App {
   width: 100vw;
   height: 100vh;
@@ -6,8 +20,7 @@
 
 .Main {
   background-color: #2d3645;
-  /* height: calc(100vh - 56px); */
-  height: 100%;
+  height: calc(100% - 56px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,12 +124,14 @@ span {
   justify-content: space-between;
 }
 
-.paper {
-  padding: 15px;
-  margin: 15px;
+.list-paper {
+  padding: 18px;
+  margin: 18px;
   cursor: pointer;
-  color: white;
-  background-color: #1b2029;
+  color: var(--txt2) !important;
+  background-color: var(--dark) !important;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .fixed {
@@ -147,4 +162,60 @@ span {
 .row {
   display: flex;
   flex-direction: row;
+}
+
+.modal-content {
+  max-height: 400px !important;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.modal-middle {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 10px;
+  margin-top: -12px;
+  font-size: 14px;
+}
+
+.box {
+  width: 110px;
+  margin: 3px;
+  padding: 3px;
+  align-items: center;
+  justify-content: center;
+}
+
+.spell-title {
+  font-weight: 600 !important;
+  font-size: 24px !important;
+}
+
+.spell-card-content {
+  height: 100%;
+  background-color: var(--main);
+  padding: 5px 20px;
+  overflow-y: scroll;
+}
+
+.spell-box {
+  color: var(--txt2) !important;
+  background-color: var(--dark) !important;
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--txt2);
+  margin-bottom: 15px;
 }
