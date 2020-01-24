@@ -169,6 +169,13 @@ span {
   width: 100%;
   height: 100%;
   margin: 0 25px 0 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-body {
+  width: 95%;
 }
 
 .wait {
@@ -254,4 +261,11 @@ span {
   font-weight: 600;
   color: var(--txt2);
   margin-bottom: 15px;
+}
+
+.level-title {
+  color: var(--txt2);
+  font-size: 20px;
+  margin: 7px;
+  font-weight: 600;
 }
