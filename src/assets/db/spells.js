@@ -4263,8 +4263,8 @@ export const spells = [
     url: "/api/spells/faerie-fire"
   },
   {
-    index: "faithful-hound",
-    name: "Faithful Hound",
+    index: "mordenkainens-faithful-hound",
+    name: "Mordenkainen's Faithful Hound",
     desc: [
       "You conjure a phantom watchdog in an unoccupied space that you can see within range, where it remains for the duration, until you dismiss it as an action, or until you move more than 100 feet away from it.",
       "The hound is invisible to all creatures except you and can't be harmed. When a Small or larger creature comes within 30 feet of it without first speaking the password that you specify when you cast this spell, the hound starts barking loudly. The hound sees invisible creatures and can see into the Ethereal Plane. It ignores illusions.",
@@ -4949,8 +4949,8 @@ export const spells = [
     url: "/api/spells/flesh-to-stone"
   },
   {
-    index: "floating-disk",
-    name: "Floating Disk",
+    index: "tensers-floating-disk",
+    name: "Tenser's Floating Disk",
     desc: [
       "This spell creates a circular, horizontal plane of force, 3 feet in diameter and 1 inch thick, that floats 3 feet above the ground in an unoccupied space of your choice that you can see within range. The disk remains for the duration, and can hold up to 500 pounds. If more weight is placed on it, the spell ends, and everything on the disk falls to the ground.",
       "The disk is immobile while you are within 20 feet of it. If you move more than 20 feet away from it, the disk follows you so that it remains within 20 feet of you. If can move across uneven terrain, up or down stairs, slopes and the like, but it can't cross an elevation change of 10 feet or more. For example, the disk can't move across a 10-foot-deep pit, nor could it leave such a pit if it was created at the bottom.",
@@ -6325,8 +6325,8 @@ export const spells = [
     url: "/api/spells/heroism"
   },
   {
-    index: "hideous-laughter",
-    name: "Hideous Laughter",
+    index: "tashas-hideous-laughter",
+    name: "Tasha's Hideous Laughter",
     desc: [
       "A creature of your choice that you can see within range perceives everything as hilariously funny and falls into fits of laughter if this spell affects it. The target must succeed on a wisdom saving throw or fall prone, becoming incapacitated and unable to stand up for the duration. A creature with an Intelligence score of 4 or less isn't affected.",
       "At the end of each of its turns, and each time it takes damage, the target can make another wisdom saving throw. The target had advantage on the saving throw if it's triggered by damage. On a success, the spell ends."
@@ -9255,8 +9255,8 @@ export const spells = [
     url: "/api/spells/prismatic-wall"
   },
   {
-    index: "private-sanctum",
-    name: "Private Sanctum",
+    index: "mordenkainens-private-sanctum",
+    name: "Mordenkainen's Private Sanctum",
     desc: [
       "You make an area within range magically secure. The area is a cube that can be as small as 5 feet to as large as 100 feet on each side. The spell lasts for the duration or until you use an action to dismiss it.",
       "When you cast the spell, you decide what sort of security the spell provides, choosing any or all of the following properties:",
@@ -9845,8 +9845,8 @@ export const spells = [
     url: "/api/spells/remove-curse"
   },
   {
-    index: "resilient-sphere",
-    name: "Resilient Sphere",
+    index: "otilukes-resilient-sphere",
+    name: "Otiluke's Resilient Sphere",
     desc: [
       "A sphere of shimmering force encloses a creature or object of Large size or smaller within range. An unwilling creature must make a dexterity saving throw. On a failed save, the creature is enclosed for the duration.",
       "Nothing--not physical objects, energy, or other spell effects--can pass through the barrier, in or out, though a creature in the sphere can breathe there. The sphere is immune to all damage, and a creature or object inside can't be damaged by attacks or effects originating from outside, nor can a creature inside the sphere damage anything outside it.",
@@ -10241,8 +10241,8 @@ export const spells = [
     url: "/api/spells/scrying"
   },
   {
-    index: "secret-chest",
-    name: "Secret Chest",
+    index: "leomunds-secret-chest",
+    name: "Leomund's Secret Chest",
     desc: [
       "You hide a chest, and all its contents, on the Ethereal Plane. You must touch the chest and the miniature replica that serves as a material component for the spell. The chest can contain up to 12 cubic feet of nonliving material (3 feet by 2 feet by 2 feet).",
       "While the chest remains on the Ethereal Plane, you can use an action and touch the replica to recall the chest. It appears in an unoccupied space on the ground within 5 feet of you. You can send the chest back to the Ethereal Plane by using an action and touching both the chest and the replica.",
@@ -11842,8 +11842,8 @@ export const spells = [
     url: "/api/spells/time-stop"
   },
   {
-    index: "tiny-hut",
-    name: "Tiny Hut",
+    index: "leomunds-tiny-hut",
+    name: "Leomund's Tiny Hut",
     desc: [
       "A 10-foot-radius immobile dome of force springs into existence around and above you and remains stationary for the duration. The spell ends if you leave its area.",
       "Nine creatures of Medium size or smaller can fit inside the dome with you. The spell fails if its area includes a larger creature or more than nine creatures. Creatures and objects within the dome when you cast this spell can move through it freely. All other creatures and objects are barred from passing through it. Spells and other magical effects can't extend through the dome or be cast through it. The atmosphere inside the space is comfortable and dry, regardless of the weather outside.",
