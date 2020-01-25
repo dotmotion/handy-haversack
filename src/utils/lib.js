@@ -27,6 +27,7 @@ export const sortByClass = spells => {
     Warlock: [],
     Wizard: []
   };
+  const classList = Object.keys(spellsByClass);
 
   spells.map(spell => {
     const classes = spell.classes.map(c => c.name);
@@ -34,6 +35,11 @@ export const sortByClass = spells => {
       spellsByClass[c].push(spell);
       return null;
     });
+    return null;
+  });
+
+  classList.map(c => {
+    spellsByClass[c] = sortByLevel(spellsByClass[c]);
     return null;
   });
 

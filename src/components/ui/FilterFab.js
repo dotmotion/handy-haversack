@@ -97,9 +97,9 @@ export default function FilterFab(props) {
 
   const actions = [
     {
-      icon: <SortByAlphaIcon />,
-      name: "Alphabetically",
-      action: "spells"
+      icon: <SchoolIcon />,
+      name: "School",
+      action: "school"
     },
     {
       icon: <SecurityIcon />,
@@ -112,9 +112,9 @@ export default function FilterFab(props) {
     //   action: "level"
     // },
     {
-      icon: <SchoolIcon />,
-      name: "School",
-      action: "school"
+      icon: <SortByAlphaIcon />,
+      name: "Name",
+      action: "spells"
     }
   ];
 

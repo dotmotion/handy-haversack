@@ -8,10 +8,9 @@ import Paper from "@material-ui/core/Paper";
 
 const ExpansionPanel = withStyles({
   root: {
-    backgroundColor: "#4c576a",
-    margin: 10,
-    color: "#fff",
-    // border: "1px solid rgba(0, 0, 0, .125)",
+    backgroundColor: "#1c2129",
+    margin: "15px 15px",
+    color: "#8b91ac",
     boxShadow: "none",
     "&:not(:last-child)": {
       borderBottom: 0
@@ -20,13 +19,33 @@ const ExpansionPanel = withStyles({
       display: "none"
     },
     "&$expanded": {
-      margin: 10
-    },
-    "&$focused": {
-      backgroundColor: "#4c576a"
+      margin: 0
     }
   },
-  expanded: {}
+  expanded: {
+    margin: 0
+  }
+})(MuiExpansionPanel);
+
+const ExpansionPanel2 = withStyles({
+  root: {
+    backgroundColor: "#272f3d",
+    margin: "5px 15px",
+    color: "#fff",
+    boxShadow: "none",
+    "&:not(:last-child)": {
+      borderBottom: 0
+    },
+    "&:before": {
+      display: "none"
+    },
+    "&$expanded": {
+      margin: 0
+    }
+  },
+  expanded: {
+    margin: 0
+  }
 })(MuiExpansionPanel);
 
 const ExpansionPanelSummary = withStyles({
@@ -55,44 +74,131 @@ const ExpansionPanelDetails = withStyles(theme => ({
 }))(MuiExpansionPanelDetails);
 
 export default function ExpPanel(props) {
-  const [expanded, setExpanded] = React.useState(false);
-  const { name, spells, onClick } = props;
+  const [expandedOut, setExpandedOut] = React.useState(false);
+  const [expandedIn, setExpandedIn] = React.useState({
+    0: false,
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false,
+    7: false,
+    8: false,
+    9: false
+  });
+  let { name, spells, onClick, type } = props;
+  const levels = Object.keys(spells);
 
-  const handleChange = () => {
-    setExpanded(!expanded);
+  const handleOut = () => {
+    setExpandedOut(!expandedOut);
+  };
+
+  const handleIn = lvl => {
+    let newObj = expandedIn;
+    newObj[lvl] = !expandedIn[lvl];
+    setData(newObj);
+  };
+
+  const setData = newObj => {
+    setExpandedIn(newObj);
   };
 
   return (
     <div>
-      {spells.length > 0 && (
-        <ExpansionPanel
-          expanded={expanded}
-          onChange={handleChange}
-          TransitionProps={{ unmountOnExit: true }}
-        >
-          <ExpansionPanelSummary
-            aria-controls="panel1d-content"
-            id="panel1d-header"
+      {type === "class" && (
+        <div>
+          <ExpansionPanel
+            expanded={expandedOut}
+            onChange={handleOut}
+            TransitionProps={{ unmountOnExit: true }}
           >
-            <Typography
-              style={{ fontWeight: 600, fontSize: 20, textAlign: "center" }}
+            <ExpansionPanelSummary
+              aria-controls="outer-panel-content"
+              id="outer-panel-header"
             >
-              {name}
-            </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            {spells.map(spell => (
-              <Paper
-                elevation={5}
-                className="list-paper-inner"
-                onClick={() => onClick(spell)}
-                key={spell.name}
+              <Typography
+                style={{ fontWeight: 600, fontSize: 20, textAlign: "center" }}
               >
-                {spell.name}
-              </Paper>
-            ))}
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+                {name}
+              </Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              {levels.map(
+                level =>
+                  spells[level].length > 0 && (
+                    <ExpansionPanel2
+                      key={`outer-${level}`}
+                      expanded={expandedIn.level}
+                      onChange={() => handleIn(level)}
+                      TransitionProps={{ unmountOnExit: true }}
+                    >
+                      <ExpansionPanelSummary
+                        aria-controls={`panel-${level}-content`}
+                        id={`panel-${level}-header`}
+                      >
+                        <Typography
+                          style={{
+                            fontWeight: 600,
+                            fontSize: 20,
+                            textAlign: "center"
+                          }}
+                        >
+                          {level === "0" ? `Cantrips` : `Level ${level}`}
+                        </Typography>
+                      </ExpansionPanelSummary>
+                      <ExpansionPanelDetails>
+                        {spells[level].map(spell => (
+                          <Paper
+                            elevation={5}
+                            className="list-paper-inner"
+                            onClick={() => onClick(spell)}
+                            key={spell.name}
+                          >
+                            {spell.name}
+                          </Paper>
+                        ))}
+                      </ExpansionPanelDetails>
+                    </ExpansionPanel2>
+                  )
+              )}
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+        </div>
+      )}
+      {type === "school" && (
+        <div>
+          {spells.length > 0 && (
+            <ExpansionPanel2
+              expanded={expandedOut}
+              onChange={handleOut}
+              TransitionProps={{ unmountOnExit: true }}
+            >
+              <ExpansionPanelSummary
+                aria-controls="panel1d-content"
+                id="panel1d-header"
+              >
+                <Typography
+                  style={{ fontWeight: 600, fontSize: 20, textAlign: "center" }}
+                >
+                  {name}
+                </Typography>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails>
+                {spells.map(spell => (
+                  <Paper
+                    elevation={5}
+                    className="list-paper-inner"
+                    onClick={() => onClick(spell)}
+                    key={spell.name}
+                  >
+                    {spell.name}
+                  </Paper>
+                ))}
+              </ExpansionPanelDetails>
+            </ExpansionPanel2>
+          )}
+        </div>
       )}
     </div>
   );

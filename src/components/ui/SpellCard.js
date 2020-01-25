@@ -48,7 +48,7 @@ export default function SpellCard2(props) {
       <div className="spell-card-content">
         <div className="spell-box">
           <span className="bold">{"Level: "}</span>
-          {spell.level}
+          {spell.level === 0 ? "0 (Cantrip)" : spell.level}
         </div>
         <div className="spell-box">
           <span className="bold">{"Cast time: "}</span>
