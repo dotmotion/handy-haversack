@@ -104,12 +104,3 @@ class App extends Component {
 }
 
 export default App;
-
-const sideList = () => (
-  <div
-    className="menu-list"
-    role="presentation"
-    onClick={this.toggleDrawer}
-    onKeyDown={this.toggleDrawer}
-  ></div>
-);
