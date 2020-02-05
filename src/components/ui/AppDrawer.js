@@ -9,7 +9,10 @@ import MenuIcon from "@material-ui/icons/Menu";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    textAlign: "center"
+    textAlign: "center",
+    position: "sticky",
+    top: 0,
+    zIndex: 999
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -37,7 +40,7 @@ export default function AppDrawer(props) {
             className={classes.menuButton}
             color="secondary"
             aria-label="menu"
-            // onClick={e => props.drawer(e)}
+            onClick={e => props.drawer(e)}
           >
             <MenuIcon />
           </IconButton>
