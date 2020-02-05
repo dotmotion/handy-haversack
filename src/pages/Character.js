@@ -2,6 +2,7 @@ import React from "react";
 import { toryc } from "../assets/toryc.js";
 
 import Divider from "@material-ui/core/Divider";
+import InputBase from "@material-ui/core/InputBase";
 
 import StatBox from "../components/StatBox";
 import Shield from "../components/ui/Shield";
@@ -187,7 +188,11 @@ export default function Char() {
         <div className="hp">
           <div className="large-hp">
             <span className="small">HP</span>
-            <span className="score">{char.hp + char.tempHp}</span>
+            <InputBase
+              className="hp-value"
+              defaultValue={char.hp + char.tempHp}
+              inputProps={{ "aria-label": "naked" }}
+            />
           </div>
           <div className="small-hp">
             <span className="small">{`MAX HP: `}</span>

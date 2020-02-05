@@ -84,12 +84,11 @@ span {
 }
 
 .small {
-  color: #adbbc4;
-  font-size: 12px;
-  font-weight: 300;
+  color: #adbbc4 !important;
+  font-size: 12px !important;
+  font-weight: 300 !important;
   padding: 4px;
   text-transform: uppercase;
-  font-weight: 300;
 }
 
 .small2 {
@@ -109,6 +108,11 @@ span {
   justify-content: center;
   align-items: center;
   border-radius: 3px;
+}
+
+.hp-value {
+  color: var(--txt) !important;
+  font-size: 25px !important;
 }
 
 .small-hp {
@@ -422,4 +426,8 @@ span {
 .MuiDrawer-paper {
   color: var(--txt2) !important;
   background-color: var(--main) !important;
+}
+
+.MuiInputBase-input {
+  text-align: center !important;
 }
