@@ -6,6 +6,19 @@
   --txt2: #8b91ac;
   margin: 0;
   padding: 0;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+.MuiDivider-middle {
+  height: 2px !important;
+  background-color: var(--light) !important;
+  width: 95% !important;
+  margin: 20px 0 !important;
 }
 
 input[type="search"]::-webkit-search-cancel-button {
@@ -16,15 +29,19 @@ p:not(:last-child) {
   margin-bottom: 1rem;
 }
 
-.App {
+#root {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+
+.drawer {
+  position: sticky !important;
 }
 
 .Main {
   background-color: #2d3645;
-  height: calc(100% - 56px);
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,18 +56,18 @@ p:not(:last-child) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: 100%;
   width: 90%;
   overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
 }
 
-section {
+.main-stats {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
   width: 100%;
-  height: 100%;
   padding: 10px;
 }
 
@@ -67,12 +84,11 @@ span {
 }
 
 .small {
-  color: #adbbc4;
-  font-size: 12px;
-  font-weight: 300;
+  color: #adbbc4 !important;
+  font-size: 12px !important;
+  font-weight: 300 !important;
   padding: 4px;
   text-transform: uppercase;
-  font-weight: 300;
 }
 
 .small2 {
@@ -94,6 +110,11 @@ span {
   border-radius: 3px;
 }
 
+.hp-value {
+  color: var(--txt) !important;
+  font-size: 25px !important;
+}
+
 .small-hp {
   height: 30%;
   background-color: #1b2029;
@@ -109,6 +130,7 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  margin: 0 10px;
 }
 
 .right {
@@ -116,6 +138,7 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  margin: 0 10px;
 }
 
 .head {
@@ -268,4 +291,143 @@ span {
   font-size: 20px;
   margin: 7px;
   font-weight: 600;
+}
+
+.spaced-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.stat-float {
+  width: 90px;
+  height: 57px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat-float input {
+  width: 100%;
+  height: 38px;
+  background: none;
+  border: none;
+  text-align: center;
+  font-size: 24px;
+  color: var(--txt2);
+}
+
+.stat-float span {
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: var(--txt2);
+}
+
+.divider {
+  margin: 10px 0 !important;
+}
+
+.mid-stats {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: -20px;
+}
+
+/* STAT BOX */
+
+.stat-box {
+  width: 30%;
+  max-width: 150px;
+  margin-bottom: 30px;
+}
+
+.label {
+  color: #adbbc4;
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-item {
+  width: 45%;
+  margin-bottom: 10px;
+  background: #1c212a;
+  padding: 0;
+  color: #adbbc4;
+  line-height: 68px;
+  text-align: center;
+}
+
+.saving {
+  background: #1c212a;
+  padding: 0;
+  color: #adbbc4;
+  text-align: center;
+  line-height: 38px;
+}
+
+/* STAT BOX */
+
+/* SKILLS */
+
+.skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.skill-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark);
+  color: var(--txt2);
+  width: 40%;
+  height: 45px;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+/* SKILLS */
+
+.menu-list {
+  width: 250px;
+  z-index: 9999;
+}
+
+.menu-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-icon {
+  width: 85px;
+  padding: 10px 5px;
+}
+
+.MuiDrawer-paper {
+  color: var(--txt2) !important;
+  background-color: var(--main) !important;
+}
+
+.MuiInputBase-input {
+  text-align: center !important;
 }
