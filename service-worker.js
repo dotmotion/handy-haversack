@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/handy-haversack/precache-manifest.62a1fb3126ec6d22d59a8a5b9f0c6663.js"
+  "/handy-haversack/precache-manifest.78ecc336f3917bbaeab7384cbfdb2847.js"
 );
 
 self.addEventListener('message', (event) => {
