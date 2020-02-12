@@ -25,6 +25,10 @@ input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 
+input[type="search"] {
+  text-align: left !important;
+}
+
 p:not(:last-child) {
   margin-bottom: 1rem;
 }
@@ -32,7 +36,6 @@ p:not(:last-child) {
 #root {
   width: 100vw;
   height: 100vh;
-  /* overflow: hidden; */
 }
 
 .drawer {
