@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "338af46ed63b34666346af0c7969d197",
+    "revision": "34d0d91017693acb549c0b57bd0dce60",
     "url": "/handy-haversack/index.html"
   },
   {
-    "revision": "99dfa1f86c6ff892022d",
+    "revision": "df0adf50b533a31ca748",
     "url": "/handy-haversack/static/css/main.08629f6d.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/handy-haversack/static/js/2.b25340d1.chunk.js.LICENSE"
   },
   {
-    "revision": "99dfa1f86c6ff892022d",
-    "url": "/handy-haversack/static/js/main.83083c23.chunk.js"
+    "revision": "df0adf50b533a31ca748",
+    "url": "/handy-haversack/static/js/main.be83fabd.chunk.js"
   },
   {
     "revision": "404ead70db35be99d41d",

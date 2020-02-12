@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/handy-haversack/static/css/main.08629f6d.chunk.css",
-    "main.js": "/handy-haversack/static/js/main.83083c23.chunk.js",
-    "main.js.map": "/handy-haversack/static/js/main.83083c23.chunk.js.map",
+    "main.js": "/handy-haversack/static/js/main.be83fabd.chunk.js",
+    "main.js.map": "/handy-haversack/static/js/main.be83fabd.chunk.js.map",
     "runtime-main.js": "/handy-haversack/static/js/runtime-main.3cee07db.js",
     "runtime-main.js.map": "/handy-haversack/static/js/runtime-main.3cee07db.js.map",
     "static/js/2.b25340d1.chunk.js": "/handy-haversack/static/js/2.b25340d1.chunk.js",
     "static/js/2.b25340d1.chunk.js.map": "/handy-haversack/static/js/2.b25340d1.chunk.js.map",
     "index.html": "/handy-haversack/index.html",
-    "precache-manifest.78ecc336f3917bbaeab7384cbfdb2847.js": "/handy-haversack/precache-manifest.78ecc336f3917bbaeab7384cbfdb2847.js",
+    "precache-manifest.bbba2456122a468230d76d0a998d7130.js": "/handy-haversack/precache-manifest.bbba2456122a468230d76d0a998d7130.js",
     "service-worker.js": "/handy-haversack/service-worker.js",
     "static/css/main.08629f6d.chunk.css.map": "/handy-haversack/static/css/main.08629f6d.chunk.css.map",
     "static/js/2.b25340d1.chunk.js.LICENSE": "/handy-haversack/static/js/2.b25340d1.chunk.js.LICENSE",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.3cee07db.js",
     "static/js/2.b25340d1.chunk.js",
     "static/css/main.08629f6d.chunk.css",
-    "static/js/main.83083c23.chunk.js"
+    "static/js/main.be83fabd.chunk.js"
   ]
 }
