@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import SB from "./assets/spellbook.png";
+import Eye from "./assets/eye.png";
 
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -94,7 +94,7 @@ class App extends Component {
         >
           <List onClick={this.toggleDrawer} onKeyDown={this.toggleDrawer}>
             <div className="menu-header">
-              <img src={SB} alt="d20" className="menu-icon" />
+              <img src={Eye} alt="d20" className="menu-icon" />
             </div>
             <ListItem
               button
