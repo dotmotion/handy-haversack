@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import D20 from "./assets/d20-2.png";
 import SB from "./assets/spellbook.png";
 
 import ListItem from "@material-ui/core/ListItem";
