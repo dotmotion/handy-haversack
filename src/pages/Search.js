@@ -62,7 +62,7 @@ class Search extends Component {
     };
   }
 
-  componentWillMount = async () => {
+  componentDidMount = async () => {
     const { spells } = this.state;
 
     const spellsByClass = await sortByClass(spells);
@@ -109,7 +109,7 @@ class Search extends Component {
     const { spells, modal, selected, searchfield, filter, loaded } = this.state;
     const { spellsByClass, spellsByLevel, spellsBySchool } = this.state;
     const { schoolList, classList } = this.state;
-    const { classes } = this.props;
+    const { classes, add } = this.props;
     let filteredSpells;
 
     switch (filter) {
@@ -193,6 +193,7 @@ class Search extends Component {
                   open={modal}
                   close={this.closeModal}
                   trans={Transition}
+                  add={add}
                 />
               )}
               {filter === "spells" &&
