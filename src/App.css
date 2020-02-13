@@ -164,6 +164,16 @@ span {
   font-size: 18px;
 }
 
+.list-paper2 {
+  padding: 18px;
+  margin: 18px;
+  cursor: pointer;
+  color: var(--txt) !important;
+  background-color: var(--light) !important;
+  font-weight: 600;
+  font-size: 18px;
+}
+
 .list-paper-inner {
   padding: 10px;
   margin: 5px;
@@ -202,6 +212,7 @@ span {
 
 .list-body {
   width: 95%;
+  margin-top: 15px;
 }
 
 .wait {
@@ -433,4 +444,17 @@ span {
 
 .MuiInputBase-input {
   text-align: center !important;
+}
+
+.spell-button {
+  margin: 10px !important;
+  color: var(--txt) !important;
+  background-color: var(--light) !important;
+}
+
+.MuiDivider-root {
+  background-color: var(--light) !important;
+  width: 95% !important;
+  margin: auto !important;
+  height: 0.8px !important;
 }

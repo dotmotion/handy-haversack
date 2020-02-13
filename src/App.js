@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import D20 from "./assets/d20-2.png";
+import SB from "./assets/spellbook.png";
 
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -11,8 +11,10 @@ import Divider from "@material-ui/core/Divider";
 import AppDrawer from "./components/ui/AppDrawer";
 import CharacterContainer from "./components/CharacterContainer";
 import Search from "./pages/Search";
+import Favs from "./pages/Favs";
 // import BottomNav from "./components/ui/BottomNav";
 import AccessibilityIcon from "@material-ui/icons/Accessibility";
+import MenuBookIcon from "@material-ui/icons/MenuBook";
 import SearchIcon from "@material-ui/icons/Search";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
@@ -30,9 +32,18 @@ class App extends Component {
     this.state = {
       character: {},
       page: "spells",
-      drawer: false
+      drawer: false,
+      favs: []
     };
   }
+
+  componentDidMount = () => {
+    const token = window.localStorage.getItem("favs");
+    if (token) {
+      const favs = JSON.parse(token);
+      this.setState({ favs });
+    }
+  };
 
   toggleDrawer = event => {
     if (
@@ -50,8 +61,25 @@ class App extends Component {
     this.setState({ page: selected, drawer: false });
   };
 
+  addFav = spell => {
+    let { favs } = this.state;
+    favs.push(spell);
+
+    this.setState({ favs });
+
+    window.localStorage.setItem("favs", JSON.stringify(favs));
+  };
+
+  removeFav = spell => {
+    const { favs } = this.state;
+    const newFavs = favs.filter(s => s.name !== spell.name);
+
+    this.setState({ favs: newFavs });
+    window.localStorage.setItem("favs", JSON.stringify(favs));
+  };
+
   render() {
-    const { drawer, page } = this.state;
+    const { drawer, page, favs } = this.state;
     return (
       <ThemeProvider theme={theme}>
         <AppDrawer
@@ -66,7 +94,7 @@ class App extends Component {
         >
           <List onClick={this.toggleDrawer} onKeyDown={this.toggleDrawer}>
             <div className="menu-header">
-              <img src={D20} alt="d20" className="menu-icon" />
+              <img src={SB} alt="d20" className="menu-icon" />
             </div>
             <ListItem
               button
@@ -78,9 +106,7 @@ class App extends Component {
               </ListItemIcon>
               <ListItemText primary={"Character"} />
             </ListItem>
-          </List>
-          <Divider />
-          <List>
+            <Divider />
             <ListItem
               button
               key={"spells"}
@@ -91,11 +117,23 @@ class App extends Component {
               </ListItemIcon>
               <ListItemText primary={"Search Spells"} />
             </ListItem>
+            <Divider />
+            <ListItem
+              button
+              key={"spell book"}
+              onClick={() => this.onChange("spell book")}
+            >
+              <ListItemIcon>
+                <MenuBookIcon style={{ color: "#8b91ac" }} />
+              </ListItemIcon>
+              <ListItemText primary={"Spell Book"} />
+            </ListItem>
           </List>
         </SwipeableDrawer>
         <main className="Main">
           {page === "character" && <CharacterContainer />}
-          {page === "spells" && <Search />}
+          {page === "spells" && <Search add={this.addFav} />}
+          {page === "spell book" && <Favs spells={favs} del={this.removeFav} />}
         </main>
         {/* {page === "character" && <BottomNav onChange={this.onChange} />} */}
       </ThemeProvider>

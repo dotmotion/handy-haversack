@@ -1,4 +1,5 @@
 import React from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
@@ -6,6 +7,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -20,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SpellCard2(props) {
-  const { spell, open, trans } = props;
+  const { spell, open, trans, add, del } = props;
   const classes = useStyles();
 
   return (
@@ -89,7 +91,29 @@ export default function SpellCard2(props) {
             </p>
           )}
         </div>
-        <div className="page">{`[ ${spell.page} ]`}</div>
+        {add && (
+          <Button
+            onClick={() => add(spell)}
+            variant="contained"
+            fullWidth
+            className="spell-button"
+            style={{ borderBottom: "2px solid #3db598" }}
+          >
+            Add to spellbook
+          </Button>
+        )}
+        {del && (
+          <Button
+            onClick={() => del(spell)}
+            variant="contained"
+            fullWidth
+            className="spell-button"
+            style={{ borderBottom: "2px solid red" }}
+          >
+            Remove from spellbook
+          </Button>
+        )}
+        <div className="page">{`[ PHB ${spell.page} ]`}</div>
       </div>
     </Dialog>
   );
