@@ -219,7 +219,7 @@ export default function Char() {
           <input type="text" value="13" />
         </div>
       </div>
-      <Divider variant="middle" />
+      <Divider variant="middle" className="class-div" />
       <section className="mid-stats">
         {stats.map(stat => (
           <StatBox
@@ -231,7 +231,7 @@ export default function Char() {
           />
         ))}
       </section>
-      <Divider variant="middle" />
+      <Divider variant="middle" className="class-div" />
       <span className="label">Skills</span>
       <section className="skills">
         {char.skills.map(skill => {
