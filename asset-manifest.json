@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/handy-haversack/static/css/main.26f22e5b.chunk.css",
-    "main.js": "/handy-haversack/static/js/main.dc0083e5.chunk.js",
-    "main.js.map": "/handy-haversack/static/js/main.dc0083e5.chunk.js.map",
+    "main.css": "/handy-haversack/static/css/main.8cff2624.chunk.css",
+    "main.js": "/handy-haversack/static/js/main.8fd6cd6a.chunk.js",
+    "main.js.map": "/handy-haversack/static/js/main.8fd6cd6a.chunk.js.map",
     "runtime-main.js": "/handy-haversack/static/js/runtime-main.3cee07db.js",
     "runtime-main.js.map": "/handy-haversack/static/js/runtime-main.3cee07db.js.map",
     "static/js/2.cd06b018.chunk.js": "/handy-haversack/static/js/2.cd06b018.chunk.js",
     "static/js/2.cd06b018.chunk.js.map": "/handy-haversack/static/js/2.cd06b018.chunk.js.map",
     "index.html": "/handy-haversack/index.html",
-    "precache-manifest.67d9fea9ea6fe27608e0cd151d6b813b.js": "/handy-haversack/precache-manifest.67d9fea9ea6fe27608e0cd151d6b813b.js",
+    "precache-manifest.cc5e2d77d820106612be89fd3f1d0187.js": "/handy-haversack/precache-manifest.cc5e2d77d820106612be89fd3f1d0187.js",
     "service-worker.js": "/handy-haversack/service-worker.js",
-    "static/css/main.26f22e5b.chunk.css.map": "/handy-haversack/static/css/main.26f22e5b.chunk.css.map",
+    "static/css/main.8cff2624.chunk.css.map": "/handy-haversack/static/css/main.8cff2624.chunk.css.map",
     "static/js/2.cd06b018.chunk.js.LICENSE": "/handy-haversack/static/js/2.cd06b018.chunk.js.LICENSE",
     "static/media/d20.svg": "/handy-haversack/static/media/d20.0b8d17b2.svg",
     "static/media/spellbook.png": "/handy-haversack/static/media/spellbook.6f27f310.png"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.3cee07db.js",
     "static/js/2.cd06b018.chunk.js",
-    "static/css/main.26f22e5b.chunk.css",
-    "static/js/main.dc0083e5.chunk.js"
+    "static/css/main.8cff2624.chunk.css",
+    "static/js/main.8fd6cd6a.chunk.js"
   ]
 }
