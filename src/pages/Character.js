@@ -17,11 +17,11 @@ export default function Char() {
       <header className="head">
         <div className="left">
           <span className="name">Toryc</span>
-          <span className="class small">{char.race}</span>
+          <span className="class small">{`(${char.race})`}</span>
         </div>
         <div className="right">
           <span>{`L${char.level} ${char.class}`}</span>
-          <span className="xp small">XP: {char.xp.toLocaleString()}</span>
+          <span className="xp small">{` (XP: ${char.xp.toLocaleString()})`}</span>
         </div>
       </header>
       <section className="main-stats">
