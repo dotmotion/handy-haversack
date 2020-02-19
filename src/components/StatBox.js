@@ -13,7 +13,7 @@ export default function StatBox(props) {
   const sav_s = sav > 0 ? "+" : "-";
 
   return (
-    <div className="stat-box">
+    <div className="stat-box" key={label}>
       <div className="label">{_label}</div>
       <div className="flex">
         <span className="stat-item">{value}</span>
