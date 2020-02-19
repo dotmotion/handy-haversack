@@ -378,13 +378,17 @@ span {
 }
 
 .stat-item {
-  width: 45%;
+  width: 50px;
   margin-bottom: 10px;
   background: #1c212a;
   padding: 0;
   color: #adbbc4;
   line-height: 68px;
   text-align: center;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .saving {
