@@ -134,7 +134,7 @@ span {
 
 .left {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   margin: 0 10px;
@@ -142,7 +142,7 @@ span {
 
 .right {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: flex-end;
   margin: 0 10px;
@@ -151,8 +151,8 @@ span {
 .head {
   background-color: #1b2029;
   width: 100%;
-  margin-bottom: 15px;
-  padding: 5px;
+  margin-bottom: 10px;
+  padding: 6px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
