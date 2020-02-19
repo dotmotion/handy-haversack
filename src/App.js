@@ -10,7 +10,7 @@ import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import AppDrawer from "./components/ui/AppDrawer";
 import CharacterContainer from "./components/CharacterContainer";
-import Search from "./pages/Search";
+import Spells from "./pages/Spells";
 import Favs from "./pages/Favs";
 // import BottomNav from "./components/ui/BottomNav";
 import AccessibilityIcon from "@material-ui/icons/Accessibility";
@@ -31,7 +31,7 @@ class App extends Component {
     super(props);
     this.state = {
       character: {},
-      page: "spells",
+      page: "character",
       drawer: false,
       favs: []
     };
@@ -132,10 +132,9 @@ class App extends Component {
         </SwipeableDrawer>
         <main className="Main">
           {page === "character" && <CharacterContainer />}
-          {page === "spells" && <Search add={this.addFav} />}
+          {page === "spells" && <Spells add={this.addFav} />}
           {page === "spell book" && <Favs spells={favs} del={this.removeFav} />}
         </main>
-        {/* {page === "character" && <BottomNav onChange={this.onChange} />} */}
       </ThemeProvider>
     );
   }
