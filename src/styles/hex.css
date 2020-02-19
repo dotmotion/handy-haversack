@@ -39,3 +39,6 @@
   text-transform: uppercase;
   font-weight: 300;
 }
+.score-small {
+  font-size: 22px;
+}
