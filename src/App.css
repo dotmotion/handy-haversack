@@ -7,6 +7,8 @@
   margin: 0;
   padding: 0;
   scrollbar-width: none;
+  scroll-behavior: smooth;
+  font-family: "Roboto", sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -44,15 +46,15 @@ p:not(:last-child) {
 
 .Main {
   background-color: #2d3645;
-  height: 100%;
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
   overflow-x: hidden;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .container {
@@ -60,16 +62,18 @@ p:not(:last-child) {
   flex-direction: column;
   align-items: center;
   height: 100%;
-  width: 90%;
+  /* width: 90%; */
   overflow-y: scroll;
   overflow-x: hidden;
   position: relative;
+  margin: 18px;
 }
 
 .main-stats {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
+  align-items: center;
   width: 100%;
   padding: 10px;
 }
@@ -79,8 +83,8 @@ span {
 }
 
 .hp {
-  height: 113px;
-  width: 113px;
+  height: 100px;
+  width: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -147,7 +151,7 @@ span {
 .head {
   background-color: #1b2029;
   width: 100%;
-  margin: 20px;
+  margin-bottom: 15px;
   padding: 5px;
   display: flex;
   flex-direction: row;
@@ -212,7 +216,6 @@ span {
 
 .list-body {
   width: 95%;
-  margin-top: 15px;
 }
 
 .wait {
@@ -332,7 +335,7 @@ span {
   border: none;
   text-align: center;
   font-size: 24px;
-  color: var(--txt2);
+  color: var(--txt);
 }
 
 .stat-float span {
@@ -402,7 +405,7 @@ span {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  padding-bottom: 40px;
+  /* padding-bottom: 40px; */
 }
 
 .skill-box {

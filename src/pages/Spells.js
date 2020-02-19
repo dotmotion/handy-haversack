@@ -47,6 +47,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 class Search extends Component {
   constructor() {
     super();
+    this.myRef = React.createRef();
     this.state = {
       loaded: false,
       spells,
@@ -58,7 +59,8 @@ class Search extends Component {
       spellsByLevel: {},
       spellsBySchool: {},
       classList: [],
-      schoolList: []
+      schoolList: [],
+      intervalId: 0
     };
   }
 
@@ -78,6 +80,21 @@ class Search extends Component {
     this.getLists(spellsByClass, spellsBySchool);
   };
 
+  scrollToTop() {
+    let intervalId = setInterval(
+      this.scrollStep.bind(this),
+      this.props.delayInMs
+    );
+    this.setState({ intervalId: intervalId });
+  }
+
+  scrollStep() {
+    if (window.pageYOffset === 0) {
+      clearInterval(this.state.intervalId);
+    }
+    window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
+  }
+
   getLists = (spellsByClass, spellsBySchool) => {
     const classList = Object.keys(spellsByClass);
     const schoolList = Object.keys(spellsBySchool);
@@ -95,6 +112,7 @@ class Search extends Component {
 
   setFilter = selection => {
     this.setState({ filter: selection, searchfield: "" });
+    this.scrollToTop();
   };
 
   closeModal = () => {
