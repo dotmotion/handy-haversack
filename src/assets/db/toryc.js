@@ -25,7 +25,7 @@ export const toryc = {
     {
       label: "Dexterity",
       value: 18,
-      prof: false,
+      prof: true,
       misc: 0
     },
     {
@@ -37,7 +37,7 @@ export const toryc = {
     {
       label: "Intelligence",
       value: 14,
-      prof: false,
+      prof: true,
       misc: 0
     },
     {

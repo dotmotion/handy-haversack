@@ -1,5 +1,4 @@
 import React from "react";
-import { toryc } from "../assets/db/toryc.js";
 
 import Divider from "@material-ui/core/Divider";
 import InputBase from "@material-ui/core/InputBase";
@@ -8,10 +7,18 @@ import StatBox from "../components/StatBox";
 import Shield from "../components/ui/Shield";
 import Hex from "../components/ui/Hex";
 
-const char = toryc;
-
-export default function Char() {
+export default function Char(props) {
+  const { char } = props;
   const { stats, skills } = char;
+
+  const temp = stats.find(element => element.label === "Wisdom");
+  const temp2 = stats.find(element => element.label === "Dexterity");
+  const per = skills.find(element => element.label === "Perception");
+
+  const w_value = Math.abs((temp.value - 10) / 2);
+  const d_value = Math.abs((temp2.value - 10) / 2);
+  const pas_wis = per.prof ? 10 + w_value + char.prof : 10 + w_value;
+
   return (
     <>
       <header className="head">
@@ -45,19 +52,19 @@ export default function Char() {
       <div className="spaced-row">
         <div className="stat-float">
           <span>Speed</span>
-          <input type="text" value="30" />
+          <p>{char.speed}</p>
         </div>
         <div className="stat-float">
           <span>Initiative</span>
-          <input type="text" value="+4" />
+          <p>{`${d_value > 0 ? `+` : `-`}${d_value}`}</p>
         </div>
         <div className="stat-float">
           <span>Proficiency</span>
-          <input type="text" value="+2" />
+          <p>{`+${char.prof}`}</p>
         </div>
         <div className="stat-float">
           <span>Passive Wis</span>
-          <input type="text" value="13" />
+          <p>{pas_wis}</p>
         </div>
       </div>
       <Divider variant="middle" className="class-div" />
