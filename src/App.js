@@ -12,7 +12,6 @@ import AppDrawer from "./components/ui/AppDrawer";
 import CharacterContainer from "./components/CharacterContainer";
 import Spells from "./pages/Spells";
 import Favs from "./pages/Favs";
-// import BottomNav from "./components/ui/BottomNav";
 import AccessibilityIcon from "@material-ui/icons/Accessibility";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
 import SearchIcon from "@material-ui/icons/Search";
