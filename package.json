@@ -1,7 +1,7 @@
 {
   "name": "handy-haversack",
   "version": "0.1.0",
-  "homepage": "http://dotmotion.github.io/handy-haversack",
+  "homepage": "http://hexer.online",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.8.3",
