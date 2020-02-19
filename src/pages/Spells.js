@@ -204,7 +204,7 @@ class Search extends Component {
                 />
               )}
             </header>
-            <div className="list-body">
+            <div style={{ width: "95%" }}>
               {modal && (
                 <SpellCard
                   spell={selected}
