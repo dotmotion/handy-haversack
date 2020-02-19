@@ -4,12 +4,13 @@ export default function StatBox(props) {
   const { label, value, prof, misc, add } = props;
   const _label = label.substring(0, 3);
 
-  const mod = Math.floor(value - 10 / 2);
+  const mod = Math.floor((value - 10) / 2);
   const mod_s = mod > 0 ? "+" : "-";
 
   const sav = prof
-    ? Math.floor(value - 10 / 2 + misc)
-    : Math.floor((value - 10) / 2 + add + misc);
+    ? Math.floor((value - 10) / 2 + add + misc)
+    : Math.floor((value - 10) / 2 + misc);
+
   const sav_s = sav > 0 ? "+" : "-";
 
   return (
