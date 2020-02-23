@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { GlobalContext } from "../context/GlobalState";
 
 import Divider from "@material-ui/core/Divider";
 import InputBase from "@material-ui/core/InputBase";
@@ -7,24 +9,30 @@ import StatBox from "../components/StatBox";
 import Shield from "../components/ui/Shield";
 import Hex from "../components/ui/Hex";
 
-export default function Char(props) {
-  const { char } = props;
-  const { stats, skills } = char;
+export default function Char() {
+  const {
+    character: { general }
+  } = useContext(GlobalContext);
 
-  const temp = stats.find(element => element.label === "Wisdom");
-  const temp2 = stats.find(element => element.label === "Dexterity");
-  const per = skills.find(element => element.label === "Perception");
+  const char = general;
+  const {
+    stats,
+    skills,
+    hp: { max, current, temp }
+  } = char;
+  const statList = Object.keys(stats);
+  const skillList = Object.keys(skills);
 
-  const w_value = Math.abs((temp.value - 10) / 2);
-  const d_value = Math.abs((temp2.value - 10) / 2);
-  const pas_wis = per.prof ? 10 + w_value + char.prof : 10 + w_value;
+  const _wis = Math.abs((stats.wisdom.value - 10) / 2);
+  const _dex = Math.abs((stats.dexterity.value - 10) / 2);
+  const pas_wis = skills.perception.prof ? 10 + _wis + char.prof : 10 + _wis;
 
   return (
     <>
       <header className="head">
         <div className="left">
-          <span className="name">Toryc</span>
-          <span className="class small">{`(${char.race})`}</span>
+          <span className="name">{char.name}</span>
+          <span className="class small">{`(${char.race}) `}</span>
         </div>
         <div className="right">
           <span>{`L${char.level} ${char.class}`}</span>
@@ -32,19 +40,19 @@ export default function Char(props) {
         </div>
       </header>
       <section className="main-stats">
-        <Shield data={char["armor-class"]} />
+        <Shield data={char.ac} />
         <div className="hp">
           <div className="large-hp">
             <span className="small">HP</span>
             <InputBase
               className="hp-value"
-              defaultValue={char.hp + char.temphp}
+              defaultValue={current + temp}
               inputProps={{ "aria-label": "naked" }}
             />
           </div>
           <div className="small-hp">
             <span className="small">{`MAX HP: `}</span>
-            <span className="small2">{char.maxhp}</span>
+            <span className="small2">{max}</span>
           </div>
         </div>
         <Hex data={char.hit} />
@@ -56,7 +64,7 @@ export default function Char(props) {
         </div>
         <div className="stat-float">
           <span>Initiative</span>
-          <p>{`${d_value > 0 ? `+` : `-`}${d_value}`}</p>
+          <p>{`${_dex > 0 ? `+` : `-`}${_dex}`}</p>
         </div>
         <div className="stat-float">
           <span>Proficiency</span>
@@ -69,23 +77,27 @@ export default function Char(props) {
       </div>
       <Divider variant="middle" className="class-div" />
       <section className="mid-stats">
-        {stats.map(stat => (
-          <StatBox
-            key={stat.label}
-            label={stat.label}
-            value={stat.value}
-            prof={stat.prof}
-            misc={stat.misc}
-            add={char.prof}
-          />
-        ))}
+        {statList.map(statName => {
+          const stat = stats[statName];
+          return (
+            <StatBox
+              key={stat.label}
+              label={stat.label}
+              value={stat.value}
+              prof={stat.prof}
+              misc={stat.misc}
+              add={char.prof}
+            />
+          );
+        })}
       </section>
       <Divider variant="middle" className="class-div" />
       <span className="label">Skills</span>
       <section className="skills">
-        {skills.map(skill => {
+        {skillList.map(skillName => {
+          const skill = skills[skillName];
           const { label, score, prof, exp } = skill;
-          const stat = stats.find(element => element.label === score);
+          const stat = stats[score.toLowerCase()];
           const proficiency = char.prof;
           let value = Math.abs((stat.value - 10) / 2);
 
