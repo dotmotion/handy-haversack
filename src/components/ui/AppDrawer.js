@@ -1,4 +1,5 @@
 import React from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -33,7 +34,7 @@ export default function AppDrawer(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" className={classes.appBar} elevation={3}>
+      <AppBar position="fixed" className={classes.appBar} elevation={3}>
         <Toolbar>
           <IconButton
             edge="start"
