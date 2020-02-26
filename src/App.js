@@ -8,13 +8,16 @@ import { GlobalProvider } from "./context/GlobalState";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import Spells from "./pages/Spells";
+import Feats from "./pages/Feats";
 import Favs from "./pages/Favs";
 import AccessibilityIcon from "@material-ui/icons/Accessibility";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
-import SearchIcon from "@material-ui/icons/Search";
+import WhatshotIcon from "@material-ui/icons/Whatshot";
+// import DeveloperModeIcon from "@material-ui/icons/DeveloperMode";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 
@@ -98,7 +101,15 @@ class App extends Component {
             onClose={this.toggleDrawer}
             onOpen={this.toggleDrawer}
           >
-            <List onClick={this.toggleDrawer} onKeyDown={this.toggleDrawer}>
+            <List
+              onClick={this.toggleDrawer}
+              onKeyDown={this.toggleDrawer}
+              style={{
+                height: "100%",
+                display: "flex",
+                flexDirection: "column"
+              }}
+            >
               <div className="menu-header">
                 <img src={Eye} alt="HEXER" className="menu-icon" />
                 <span>Ḥ̨̢̤̥̣̯͇͍̒͋̋̾͗̿͛̃Ẻ̸̹̼̰̖̬̩̝̈́̆̈̀̋́̓X̷̧̥̖̠̪͚̿͌̔́̚͞Ė̶̢̛̠͙͚̟͌̈́͒R̸̙̘̣̝̩̓̊͛̒͢͜͡</span>
@@ -120,9 +131,20 @@ class App extends Component {
                 onClick={() => this.onChange("spells")}
               >
                 <ListItemIcon>
-                  <SearchIcon className="color-txt" />
+                  <WhatshotIcon className="color-txt" />
                 </ListItemIcon>
-                <ListItemText primary={"Search Spells"} className="color-txt" />
+                <ListItemText primary={"Spells"} className="color-txt" />
+              </ListItem>
+              <Divider />
+              <ListItem
+                button
+                key={"feats"}
+                onClick={() => this.onChange("feats")}
+              >
+                <ListItemIcon>
+                  <FitnessCenterIcon className="color-txt" />
+                </ListItemIcon>
+                <ListItemText primary={"Feats"} className="color-txt" />
               </ListItem>
               <Divider />
               <ListItem
@@ -135,11 +157,23 @@ class App extends Component {
                 </ListItemIcon>
                 <ListItemText primary={"Spell Book"} className="color-txt" />
               </ListItem>
+              {/* <Divider style={{ alignSelf: "end", marginTop: "auto" }} />
+              <ListItem
+                button
+                key={"changelog"}
+                // onClick={() => this.onChange("")}
+              >
+                <ListItemIcon>
+                  <DeveloperModeIcon className="color-txt" />
+                </ListItemIcon>
+                <ListItemText primary={"Changelog"} className="color-txt" />
+              </ListItem> */}
             </List>
           </SwipeableDrawer>
           <main className="Main">
             {page === "character" && <CharacterContainer />}
             {page === "spells" && <Spells add={this.addFav} />}
+            {page === "feats" && <Feats add={this.addFav} />}
             {page === "spell book" && (
               <Favs spells={favs} del={this.removeFav} />
             )}
