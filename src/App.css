@@ -1,5 +1,5 @@
 * {
-  --main: #272f3d;
+  --main: #2d3645;
   --dark: #1c2129;
   --light: #4c576a;
   --txt: #ffffff;
@@ -53,7 +53,7 @@ a {
 }
 
 .Main {
-  background-color: #2d3645;
+  background-color: var(--main);
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -484,7 +484,7 @@ span {
 .MuiDivider-root {
   background-color: var(--light) !important;
   width: 95% !important;
-  margin: auto !important;
+  /* margin: auto !important; */
   height: 0.8px !important;
 }
 
