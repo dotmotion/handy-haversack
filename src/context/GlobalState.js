@@ -2,6 +2,8 @@ import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
 
 import { spells } from "../assets/db/spells";
+import { traits } from "../assets/db/traits";
+import { feats } from "../assets/db/feats";
 import { sortByClass, sortByLevel, sortBySchool } from "../utils/lib";
 
 const book = window.localStorage.getItem("favs");
@@ -17,21 +19,21 @@ const initialState = {
           race: "Gnoll",
           class: ["Rogue"],
           level: [4],
-          prof: 2,
+          prof: 3,
           xp: 6400,
           hp: {
-            max: 35,
-            current: 35,
+            max: 45,
+            current: 45,
             temp: 0
           },
           speed: 30,
           hit: "4d8",
-          ac: 16,
+          ac: 20,
           stats: {
             strength: {
               label: "Strength",
               value: 14,
-              prof: false,
+              prof: true,
               misc: 0
             },
             dexterity: {
@@ -43,7 +45,7 @@ const initialState = {
             constitution: {
               label: "Constitution",
               value: 16,
-              prof: false,
+              prof: true,
               misc: 0
             },
             intelligence: {
@@ -370,6 +372,8 @@ const initialState = {
       },
   spellbook: book ? JSON.parse(book) : [],
   spells,
+  feats,
+  traits,
   spellsByClass: sortByClass(spells),
   spellsByLevel: sortByLevel(spells),
   spellsBySchool: sortBySchool(spells)
@@ -418,6 +422,8 @@ export const GlobalProvider = ({ children }) => {
         character: state.character,
         spellbook: state.spellbook,
         spells: state.spells,
+        feats: state.feats,
+        traits: state.traits,
         lists: {
           classList: state.spellsByClass,
           levelList: state.spellsByLevel,
@@ -433,9 +439,3 @@ export const GlobalProvider = ({ children }) => {
     </GlobalContext.Provider>
   );
 };
-
-// how to use the context:
-//
-// import React, { useContext } from "react"
-// import Context from "../context/context"
-// const { priceOpt, elasticity, submitOpt, submitElast } = useContext(Context);
