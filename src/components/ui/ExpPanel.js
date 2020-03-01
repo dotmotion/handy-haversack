@@ -19,11 +19,11 @@ const ExpansionPanel = withStyles({
       display: "none"
     },
     "&$expanded": {
-      margin: 0
+      margin: "15px 15px"
     }
   },
   expanded: {
-    margin: 0
+    margin: "15px 15px"
   }
 })(MuiExpansionPanel);
 
@@ -40,11 +40,11 @@ const ExpansionPanel2 = withStyles({
       display: "none"
     },
     "&$expanded": {
-      margin: 0
+      margin: "5px 15px"
     }
   },
   expanded: {
-    margin: 0
+    margin: "5px 15px"
   }
 })(MuiExpansionPanel);
 
