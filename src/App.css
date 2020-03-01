@@ -11,6 +11,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  background-color: var(--main);
+}
+
 ::-webkit-scrollbar {
   width: 0px; /* Remove scrollbar space */
   background: transparent; /* Optional: just make scrollbar invisible */
@@ -41,6 +45,9 @@ a {
 
 .color-txt {
   color: var(--txt2);
+  /* padding: 4px; */
+  width: 24px !important;
+  height: 24px !important;
 }
 
 #root {
@@ -458,12 +465,23 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .menu-icon {
   width: 105px;
   margin: 20px 5px;
+}
+
+.menu-icon-big {
+  width: 125px;
+  margin: 20px 5px;
+}
+
+.menu-title {
+  color: var(--txt2);
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .MuiDrawer-paper {
@@ -485,7 +503,7 @@ span {
   background-color: var(--light) !important;
   width: 95% !important;
   /* margin: auto !important; */
-  height: 0.8px !important;
+  height: 1px !important;
 }
 
 .MuiDrawer-paper {
@@ -494,6 +512,24 @@ span {
 
 .class-div {
   margin: 15px 0 !important;
+}
+
+.buttons {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  margin-top: 35px;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-list-box {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px !important;
+  border: var(--txt2) inset 10px;
 }
 
 @media only screen and (min-width: 600px) {

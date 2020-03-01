@@ -5,19 +5,25 @@ import AppDrawer from "./components/ui/AppDrawer";
 import CharacterContainer from "./components/CharacterContainer";
 import { GlobalProvider } from "./context/GlobalState";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFistRaised,
+  faShieldAlt,
+  faMagic,
+  faBookDead,
+  faUser
+} from "@fortawesome/free-solid-svg-icons";
+
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import Spells from "./pages/Spells";
+import Traits from "./pages/Traits";
 import Feats from "./pages/Feats";
 import Favs from "./pages/Favs";
-import AccessibilityIcon from "@material-ui/icons/Accessibility";
-import MenuBookIcon from "@material-ui/icons/MenuBook";
-import WhatshotIcon from "@material-ui/icons/Whatshot";
-// import DeveloperModeIcon from "@material-ui/icons/DeveloperMode";
+import Menu from "./pages/Menu";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 
@@ -33,7 +39,7 @@ class App extends Component {
     super(props);
     this.state = {
       character: {},
-      page: "character",
+      page: "welcome",
       drawer: false,
       favs: []
     };
@@ -110,7 +116,10 @@ class App extends Component {
                 flexDirection: "column"
               }}
             >
-              <div className="menu-header">
+              <div
+                className="menu-header"
+                onClick={() => this.onChange("welcome")}
+              >
                 <img src={Eye} alt="HEXER" className="menu-icon" />
                 <span>Ḥ̨̢̤̥̣̯͇͍̒͋̋̾͗̿͛̃Ẻ̸̹̼̰̖̬̩̝̈́̆̈̀̋́̓X̷̧̥̖̠̪͚̿͌̔́̚͞Ė̶̢̛̠͙͚̟͌̈́͒R̸̙̘̣̝̩̓̊͛̒͢͜͡</span>
               </div>
@@ -120,7 +129,7 @@ class App extends Component {
                 onClick={() => this.onChange("character")}
               >
                 <ListItemIcon>
-                  <AccessibilityIcon className="color-txt" />
+                  <FontAwesomeIcon icon={faUser} className="color-txt" />
                 </ListItemIcon>
                 <ListItemText primary={"Character"} className="color-txt" />
               </ListItem>
@@ -131,9 +140,20 @@ class App extends Component {
                 onClick={() => this.onChange("spells")}
               >
                 <ListItemIcon>
-                  <WhatshotIcon className="color-txt" />
+                  <FontAwesomeIcon icon={faMagic} className="color-txt" />
                 </ListItemIcon>
                 <ListItemText primary={"Spells"} className="color-txt" />
+              </ListItem>
+              <Divider />
+              <ListItem
+                button
+                key={"traits"}
+                onClick={() => this.onChange("traits")}
+              >
+                <ListItemIcon>
+                  <FontAwesomeIcon icon={faShieldAlt} className="color-txt" />
+                </ListItemIcon>
+                <ListItemText primary={"Traits"} className="color-txt" />
               </ListItem>
               <Divider />
               <ListItem
@@ -142,7 +162,7 @@ class App extends Component {
                 onClick={() => this.onChange("feats")}
               >
                 <ListItemIcon>
-                  <FitnessCenterIcon className="color-txt" />
+                  <FontAwesomeIcon icon={faFistRaised} className="color-txt" />
                 </ListItemIcon>
                 <ListItemText primary={"Feats"} className="color-txt" />
               </ListItem>
@@ -153,27 +173,18 @@ class App extends Component {
                 onClick={() => this.onChange("spell book")}
               >
                 <ListItemIcon>
-                  <MenuBookIcon className="color-txt" />
+                  <FontAwesomeIcon icon={faBookDead} className="color-txt" />
                 </ListItemIcon>
                 <ListItemText primary={"Spell Book"} className="color-txt" />
               </ListItem>
-              {/* <Divider style={{ alignSelf: "end", marginTop: "auto" }} />
-              <ListItem
-                button
-                key={"changelog"}
-                // onClick={() => this.onChange("")}
-              >
-                <ListItemIcon>
-                  <DeveloperModeIcon className="color-txt" />
-                </ListItemIcon>
-                <ListItemText primary={"Changelog"} className="color-txt" />
-              </ListItem> */}
             </List>
           </SwipeableDrawer>
           <main className="Main">
+            {page === "welcome" && <Menu onChange={this.onChange} />}
             {page === "character" && <CharacterContainer />}
             {page === "spells" && <Spells add={this.addFav} />}
-            {page === "feats" && <Feats add={this.addFav} />}
+            {page === "feats" && <Feats />}
+            {page === "traits" && <Traits />}
             {page === "spell book" && (
               <Favs spells={favs} del={this.removeFav} />
             )}

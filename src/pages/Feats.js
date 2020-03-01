@@ -1,15 +1,38 @@
 import React, { useState, useContext } from "react";
 
 import { GlobalContext } from "../context/GlobalState";
-import FeatCard from "../components/ui/FeatCard";
 
-import Paper from "@material-ui/core/Paper";
-import Slide from "@material-ui/core/Slide";
+import MuiExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import { IconButton } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 import TextField from "@material-ui/core/TextField";
 import { withStyles } from "@material-ui/core/styles";
+
+const ExpansionPanel = withStyles({
+  root: {
+    backgroundColor: "#1c2129",
+    margin: "15px 15px",
+    color: "#8b91ac",
+    boxShadow: "none",
+    "&:not(:last-child)": {
+      borderBottom: 0
+    },
+    "&:before": {
+      display: "none"
+    },
+    "&$expanded": {
+      margin: 0
+    }
+  },
+  expanded: {
+    margin: 0
+  }
+})(MuiExpansionPanel);
 
 const styles = {
   root: {
@@ -26,6 +49,7 @@ const styles = {
       borderBottom: "2px solid var(--light)"
     }
   },
+  exp: { borderRadius: 8 },
   input: {
     color: "var(--txt2)",
     fontWeight: 600,
@@ -34,36 +58,22 @@ const styles = {
   },
   label: {
     color: "white"
-  }
+  },
+  heading: { fontWeight: 600, fontSize: 18, textAlign: "center" },
+  highlight: { fontWeight: 600, textDecoration: "underline", display: "inline" }
 };
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-
-function Search(props) {
+function Feats(props) {
   const { classes } = props;
 
-  const { traits } = useContext(GlobalContext);
-  const [selected, setSelected] = useState(null);
-  const [modal, setModal] = useState(false);
+  const { feats } = useContext(GlobalContext);
   const [search, setSearch] = useState("");
 
   const onSearchChange = e => {
     setSearch(e ? e.target.value : "");
   };
 
-  const openModal = async spell => {
-    setSelected(spell);
-    setModal(true);
-  };
-
-  const closeModal = () => {
-    setModal(false);
-    setSelected(null);
-  };
-
-  let filteredTraits = traits.filter(feat => {
+  let filteredFeats = feats.filter(feat => {
     return feat.name.toLowerCase().includes(search.toLowerCase());
   });
 
@@ -97,24 +107,34 @@ function Search(props) {
             value={search}
           />
         </header>
-        <div style={{ width: "95%" }}>
-          {modal && (
-            <FeatCard
-              feat={selected}
-              open={modal}
-              close={closeModal}
-              trans={Transition}
-            />
-          )}
-          {filteredTraits.map(feat => (
-            <Paper
-              elevation={5}
-              className="list-paper"
-              onClick={() => openModal(feat)}
+        <div style={{ width: "95%", marginTop: "10px" }}>
+          {filteredFeats.map(feat => (
+            <ExpansionPanel
               key={feat.name}
+              TransitionProps={{ unmountOnExit: true }}
+              className={classes.exp}
             >
-              {feat.name}
-            </Paper>
+              <ExpansionPanelSummary
+                expandIcon={<ExpandMoreIcon style={{ color: "#8b91ac" }} />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography className={classes.heading}>{feat.name}</Typography>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails
+                style={{ flexDirection: "column", fontSize: "14px" }}
+              >
+                {feat.preq && (
+                  <>
+                    <span className={classes.highlight}>{`Prequisite: `}</span>
+                    <p>{feat.preq}</p>
+                  </>
+                )}
+                {feat.text.map((txt, i) => (
+                  <p key={i}>{txt}</p>
+                ))}
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
           ))}
         </div>
       </div>
@@ -122,4 +142,4 @@ function Search(props) {
   );
 }
 
-export default withStyles(styles)(Search);
+export default withStyles(styles)(Feats);
