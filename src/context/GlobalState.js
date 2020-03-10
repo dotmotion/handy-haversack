@@ -4,6 +4,7 @@ import AppReducer from "./AppReducer";
 import { spells } from "../assets/db/spells";
 import { traits } from "../assets/db/traits";
 import { feats } from "../assets/db/feats";
+import { beasts } from "../assets/db/beasts";
 import { sortByClass, sortByLevel, sortBySchool } from "../utils/lib";
 
 const book = window.localStorage.getItem("favs");
@@ -374,6 +375,7 @@ const initialState = {
   spells,
   feats,
   traits,
+  beasts,
   spellsByClass: sortByClass(spells),
   spellsByLevel: sortByLevel(spells),
   spellsBySchool: sortBySchool(spells)
@@ -424,6 +426,7 @@ export const GlobalProvider = ({ children }) => {
         spells: state.spells,
         feats: state.feats,
         traits: state.traits,
+        beasts: state.beasts,
         lists: {
           classList: state.spellsByClass,
           levelList: state.spellsByLevel,
