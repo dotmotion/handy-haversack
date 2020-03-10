@@ -2,11 +2,12 @@ import React, { useState, useContext } from "react";
 
 import { GlobalContext } from "../context/GlobalState";
 
-import SpellCard from "../components/ui/SpellCard";
+import SpellModal from "../components/ui/SpellModal";
 import FilterFab from "../components/ui/FilterFab";
 import ExpPanel from "../components/ui/ExpPanel";
+import SpellCard from "../components/SpellCard";
 
-import Paper from "@material-ui/core/Paper";
+import Dialog from "@material-ui/core/Dialog";
 import Slide from "@material-ui/core/Slide";
 import { IconButton } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
@@ -39,7 +40,7 @@ const styles = {
   }
 };
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
+  return <Slide direction="up" in={true} ref={ref} {...props} />;
 });
 
 function Search(props) {
@@ -52,7 +53,7 @@ function Search(props) {
 
   const [selected, setSelected] = useState(null);
   const [modal, setModal] = useState(false);
-  const [filter, setFilter] = useState("spells");
+  const [filter, setFilter] = useState("class");
   const [search, setSearch] = useState("");
 
   const classNames = Object.keys(classList);
@@ -70,8 +71,8 @@ function Search(props) {
   };
 
   const closeModal = () => {
+    // setSelected(null);
     setModal(false);
-    setSelected(null);
   };
 
   const onSearchChange = e => {
@@ -117,24 +118,19 @@ function Search(props) {
         </header>
         <div style={{ width: "95%" }}>
           {modal && (
-            <SpellCard
-              spell={selected}
+            <Dialog
+              fullScreen
+              keepMounted
               open={modal}
-              close={closeModal}
-              trans={Transition}
-              add={add}
-            />
+              onClose={closeModal}
+              TransitionComponent={Transition}
+            >
+              <SpellModal spell={selected} close={closeModal} add={add} />
+            </Dialog>
           )}
           {filter === "spells" &&
             filteredSpells.map(spell => (
-              <Paper
-                elevation={5}
-                className="list-paper"
-                onClick={() => openModal(spell)}
-                key={spell.name}
-              >
-                {spell.name}
-              </Paper>
+              <SpellCard key={spell.name} spell={spell} openModal={openModal} />
             ))}
 
           {filter === "class" &&
