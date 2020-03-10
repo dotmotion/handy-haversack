@@ -176,13 +176,17 @@ span {
 }
 
 .list-paper {
-  padding: 18px;
-  margin: 18px;
+  padding: 10px;
+  margin: 9px;
   cursor: pointer;
   color: var(--txt2) !important;
   background-color: var(--dark) !important;
   font-weight: 600;
   font-size: 18px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .list-paper2 {
@@ -299,14 +303,26 @@ span {
   background-color: var(--main);
   padding: 5px 20px;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
 }
 
 .spell-box {
   color: var(--txt2) !important;
   background-color: var(--dark) !important;
-  margin: 15px 0;
-  padding: 15px;
+  margin: 7px 0;
+  padding: 7px;
   border-radius: 4px;
+}
+
+.dual-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dual-box .spell-box {
+  flex-basis: 45%;
 }
 
 .page {
@@ -502,7 +518,6 @@ span {
 .MuiDivider-root {
   background-color: var(--light) !important;
   width: 95% !important;
-  /* margin: auto !important; */
   height: 1px !important;
 }
 
@@ -530,6 +545,62 @@ span {
   flex-direction: column;
   padding: 30px 40px !important;
   border: var(--txt2) inset 10px;
+}
+
+.card-deets {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2px;
+}
+
+.card-title {
+  font-weight: 600;
+  color: var(--txt2);
+  margin: 5px 3px;
+  font-size: 22px;
+}
+
+.card-action {
+  text-decoration: underline;
+}
+
+.card-section {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.card-section span {
+  color: lightgrey;
+}
+
+.card-txt {
+  color: var(--txt2) !important;
+}
+
+.card-circles {
+  display: flex;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+
+.card-circle {
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  background-color: var(--txt2);
+  color: black;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3px;
 }
 
 @media only screen and (min-width: 600px) {
