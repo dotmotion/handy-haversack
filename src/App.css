@@ -8,7 +8,7 @@
   padding: 0;
   scrollbar-width: none;
   scroll-behavior: smooth;
-  font-family: "Roboto", sans-serif;
+  font-family: "Titillium Web", sans-serif !important;
 }
 
 body {
@@ -46,7 +46,8 @@ a {
 .color-txt {
   color: var(--txt2);
   /* padding: 4px; */
-  width: 24px !important;
+  font-weight: 600 !important;
+  min-width: 24px !important;
   height: 24px !important;
 }
 
@@ -176,8 +177,8 @@ span {
 }
 
 .list-paper {
-  padding: 10px;
-  margin: 9px;
+  padding: 8px;
+  margin: 15px;
   cursor: pointer;
   color: var(--txt2) !important;
   background-color: var(--dark) !important;
@@ -190,13 +191,13 @@ span {
 }
 
 .list-paper2 {
-  padding: 18px;
-  margin: 18px;
+  padding: 9px;
+  margin: 9px;
   cursor: pointer;
   color: var(--txt) !important;
   background-color: var(--light) !important;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .list-paper-inner {
@@ -257,6 +258,12 @@ span {
   flex-direction: column;
 }
 
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .row {
   display: flex;
   flex-direction: row;
@@ -315,6 +322,90 @@ span {
   border-radius: 4px;
 }
 
+.beast-box {
+  color: white !important;
+  background-color: var(--light) !important;
+  margin: 7px 0;
+  font-size: 14px;
+  padding: 7px;
+  border-radius: 4px;
+}
+
+.beast-stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.beast-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.beast-stat-name {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+strong {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.text-divider {
+  margin: 3px 0;
+  display: flex;
+  align-items: center;
+  color: var(--txt);
+  font-size: 18px;
+  --text-divider-gap: 0.5rem;
+}
+
+.text-divider::after,
+.text-divider::before {
+  content: "";
+  height: 1px;
+  background-color: var(--txt2);
+  flex-grow: 1;
+}
+
+.text-divider::before {
+  margin-right: var(--text-divider-gap);
+  margin-left: var(--text-divider-gap);
+}
+.text-divider::after {
+  margin-left: var(--text-divider-gap);
+  margin-right: var(--text-divider-gap);
+}
+
+.text-divider2 {
+  margin: 3px 0;
+  display: flex;
+  align-items: center;
+  color: var(--txt2);
+  font-size: 18px;
+  --text-divider-gap: 0.5rem;
+}
+
+.text-divider2::after,
+.text-divider2::before {
+  content: "";
+  height: 1px;
+  background-color: var(--light);
+  flex-grow: 1;
+}
+
+.text-divider2::before {
+  margin-right: var(--text-divider-gap);
+  margin-left: var(--text-divider-gap);
+}
+.text-divider2::after {
+  margin-left: var(--text-divider-gap);
+  margin-right: var(--text-divider-gap);
+}
+
 .dual-box {
   display: flex;
   flex-direction: row;
@@ -323,6 +414,11 @@ span {
 
 .dual-box .spell-box {
   flex-basis: 45%;
+}
+
+.dual-box .beast-box {
+  flex-basis: 30%;
+  padding: 3px;
 }
 
 .page {
@@ -475,6 +571,18 @@ span {
   z-index: 9999;
 }
 
+.menu-box {
+  display: flex;
+  flex-direction: column;
+  max-width: 110px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.menu-align {
+  color: var(--txt2);
+}
+
 .menu-header {
   width: 100%;
   display: flex;
@@ -542,23 +650,24 @@ span {
   height: 100%;
   width: 60%;
   display: flex;
-  flex-direction: column;
-  padding: 30px 40px !important;
-  border: var(--txt2) inset 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px !important;
+  border: var(--txt2) groove 10px;
 }
 
 .card-deets {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 2px;
 }
 
 .card-title {
   font-weight: 600;
   color: var(--txt2);
-  margin: 5px 3px;
-  font-size: 22px;
+  margin: 0 3px;
+  font-size: 20px;
 }
 
 .card-action {
@@ -585,8 +694,8 @@ span {
 .card-circles {
   display: flex;
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 1px;
+  right: 1px;
 }
 
 .card-circle {
@@ -601,6 +710,16 @@ span {
   align-items: center;
   justify-content: center;
   margin: 3px;
+}
+
+.txt2 {
+  color: var(--txt2);
+  margin: 3px 0;
+}
+
+.MuiListItem-root {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
 }
 
 @media only screen and (min-width: 600px) {
