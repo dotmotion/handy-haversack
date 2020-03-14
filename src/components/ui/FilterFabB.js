@@ -3,10 +3,8 @@ import React from "react";
 
 import { ThemeProvider } from "@material-ui/styles";
 import SortByAlphaIcon from "@material-ui/icons/SortByAlpha";
-// import FormatListNumberedIcon from "@material-ui/icons/FormatListNumbered";
 import SecurityIcon from "@material-ui/icons/Security";
 import SpeedDial from "@material-ui/lab/SpeedDial";
-import SchoolIcon from "@material-ui/icons/School";
 import SortIcon from "@material-ui/icons/Sort";
 import SpeedDialAction from "@material-ui/lab/SpeedDialAction";
 import SpeedDialIcon from "@material-ui/lab/SpeedDialIcon";
@@ -77,7 +75,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-export default function FilterFab(props) {
+export default function FilterFabB(props) {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -97,24 +95,14 @@ export default function FilterFab(props) {
 
   const actions = [
     {
-      icon: <SchoolIcon />,
-      name: "School",
-      action: "school"
-    },
-    {
       icon: <SecurityIcon />,
-      name: "Class",
-      action: "class"
+      name: "CR",
+      action: "cr"
     },
-    // {
-    //   icon: <FormatListNumberedIcon />,
-    //   name: "Level",
-    //   action: "level"
-    // },
     {
       icon: <SortByAlphaIcon />,
       name: "Name",
-      action: "spells"
+      action: "name"
     }
   ];
 
