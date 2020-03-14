@@ -54,7 +54,7 @@ function Search(props) {
 
   const [selected, setSelected] = useState(null);
   const [modal, setModal] = useState(false);
-  const [filter, setFilter] = useState("class");
+  const [filter, setFilter] = useState("spells");
   const [search, setSearch] = useState("");
 
   const classNames = Object.keys(classList);
