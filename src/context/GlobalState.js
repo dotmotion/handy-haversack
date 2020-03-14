@@ -7,13 +7,25 @@ import { feats } from "../assets/db/feats";
 import { beasts } from "../assets/db/beasts";
 import { sortByClass, sortByLevel, sortBySchool } from "../utils/lib";
 
-const book = window.localStorage.getItem("favs");
-const char = window.localStorage.getItem("char");
+const book = JSON.parse(window.localStorage.getItem("favs"));
+let updatedBook = [];
+book.map(spell => {
+  spells.map(s => {
+    if (s.name === spell.name) {
+      updatedBook.push(s);
+      return null;
+    } else {
+      return null;
+    }
+  });
+  return null;
+});
+const char = JSON.parse(window.localStorage.getItem("char"));
 
 // Initial state
 const initialState = {
   character: char
-    ? JSON.parse(char)
+    ? char
     : {
         general: {
           name: "Toryc",
@@ -371,7 +383,7 @@ const initialState = {
           }
         }
       },
-  spellbook: book ? JSON.parse(book) : [],
+  spellbook: book ? updatedBook : [],
   spells,
   feats,
   traits,
