@@ -1,7 +1,7 @@
 import React from "react";
 
 import Paper from "@material-ui/core/Paper";
-import Divider from "@material-ui/core/Divider";
+// import Divider from "@material-ui/core/Divider";
 
 export default function SpellCard(props) {
   const { spell, openModal } = props;
@@ -15,8 +15,9 @@ export default function SpellCard(props) {
       className="list-paper"
       onClick={() => openModal(spell)}
     >
-      <span className="card-title">{spell.name}</span>
-      <Divider style={{ margin: 2 }} />
+      {/* <span className="card-title">{spell.name}</span> */}
+      <div className="text-divider txt2">{spell.name}</div>
+      {/* <Divider style={{ margin: 2 }} /> */}
       <div className="card-deets">
         <div className="card-section">
           <span>Level</span>

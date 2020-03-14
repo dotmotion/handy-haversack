@@ -3,9 +3,9 @@ import React, { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 import SpellModal from "../components/ui/SpellModal";
-import FilterFab from "../components/ui/FilterFab";
+import FilterFabS from "../components/ui/FilterFabS";
 import ExpPanel from "../components/ui/ExpPanel";
-import SpellCard from "../components/SpellCard";
+import SpellCard from "../components/ui/SpellCard";
 
 import Dialog from "@material-ui/core/Dialog";
 import Slide from "@material-ui/core/Slide";
@@ -31,6 +31,7 @@ const styles = {
   },
   input: {
     color: "var(--txt2)",
+    backgroundColor: "var(--dark)",
     fontWeight: 600,
     fontSize: 20,
     margin: 5
@@ -53,7 +54,7 @@ function Search(props) {
 
   const [selected, setSelected] = useState(null);
   const [modal, setModal] = useState(false);
-  const [filter, setFilter] = useState("spells");
+  const [filter, setFilter] = useState("class");
   const [search, setSearch] = useState("");
 
   const classNames = Object.keys(classList);
@@ -86,13 +87,14 @@ function Search(props) {
   return (
     <>
       <div className="list">
-        <FilterFab setFilter={filterChange} />
+        <FilterFabS setFilter={filterChange} />
         <header className="search-header">
           {filter === "spells" && (
             <TextField
               placeholder="Search"
               type="search"
               fullWidth
+              variant="outlined"
               InputProps={{
                 className: classes.input,
                 endAdornment: (

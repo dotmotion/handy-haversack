@@ -5,12 +5,12 @@ import MuiExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import MuiExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 
-import SpellCard from "../SpellCard";
+import SpellCard from "./SpellCard";
 
 const ExpansionPanel = withStyles({
   root: {
-    backgroundColor: "#1c2129",
-    margin: "10px",
+    backgroundColor: "#2d3645",
+    margin: 0,
     color: "#8b91ac",
     boxShadow: "none",
     "&:not(:last-child)": {
@@ -20,18 +20,18 @@ const ExpansionPanel = withStyles({
       display: "none"
     },
     "&$expanded": {
-      margin: "10px"
+      margin: 0
     }
   },
   expanded: {
-    margin: "15px"
+    margin: 0
   }
 })(MuiExpansionPanel);
 
 const ExpansionPanel2 = withStyles({
   root: {
-    backgroundColor: "#272f3d",
-    margin: "5px",
+    backgroundColor: "#2d3645",
+    margin: 0,
     color: "#fff",
     boxShadow: "none",
     "&:not(:last-child)": {
@@ -41,18 +41,17 @@ const ExpansionPanel2 = withStyles({
       display: "none"
     },
     "&$expanded": {
-      margin: "5px"
+      margin: 0
     }
   },
   expanded: {
-    margin: "5px"
+    margin: 0
   }
 })(MuiExpansionPanel);
 
 const ExpansionPanelSummary = withStyles({
   root: {
-    backgroundColor: "rgba(0, 0, 0, .03)",
-    borderBottom: "1px solid rgba(0, 0, 0, .125)",
+    backgroundColor: "#2d3645",
     marginBottom: -1,
     minHeight: 56,
     "&$expanded": {
@@ -118,11 +117,17 @@ export default function ExpPanel(props) {
               aria-controls="outer-panel-content"
               id="outer-panel-header"
             >
-              <Typography
-                style={{ fontWeight: 600, fontSize: 20, textAlign: "center" }}
+              <div
+                className="text-divider"
+                style={{
+                  width: "100%",
+                  fontSize: "24px",
+                  color: "#8b91ac",
+                  fontWeight: 600
+                }}
               >
                 {name}
-              </Typography>
+              </div>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               {levels.map(
@@ -138,15 +143,15 @@ export default function ExpPanel(props) {
                         aria-controls={`panel-${level}-content`}
                         id={`panel-${level}-header`}
                       >
-                        <Typography
+                        <div
+                          className="text-divider2"
                           style={{
-                            fontWeight: 600,
-                            fontSize: 20,
-                            textAlign: "center"
+                            width: "100%",
+                            fontSize: "16px"
                           }}
                         >
                           {level === "0" ? `Cantrips` : `Level ${level}`}
-                        </Typography>
+                        </div>
                       </ExpansionPanelSummary>
                       <ExpansionPanelDetails>
                         {spells[level].map(spell => (
