@@ -2,18 +2,16 @@ import React from "react";
 import Eye from "../assets/new-eye.png";
 
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFistRaised,
   faShieldAlt,
   faMagic,
-  faBookDead,
-  faUser
+  faJournalWhills,
+  faUser,
+  faPaw
 } from "@fortawesome/free-solid-svg-icons";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -51,45 +49,68 @@ function Menu(props) {
           <List className="menu-list-box">
             <ListItem
               button
+              className="menu-box"
               key={"character"}
               onClick={() => onChange("character")}
             >
-              <ListItemIcon>
-                <FontAwesomeIcon icon={faUser} className="color-txt" />
-              </ListItemIcon>
-              <ListItemText primary={"Character"} className="color-txt" />
+              <FontAwesomeIcon icon={faUser} className="menu-align" />
+
+              <span className="menu-align">Character</span>
             </ListItem>
-            <Divider />
-            <ListItem button key={"spells"} onClick={() => onChange("spells")}>
-              <ListItemIcon>
-                <FontAwesomeIcon icon={faMagic} className="color-txt" />
-              </ListItemIcon>
-              <ListItemText primary={"Spells"} className="color-txt" />
-            </ListItem>
-            <Divider />
-            <ListItem button key={"traits"} onClick={() => onChange("traits")}>
-              <ListItemIcon>
-                <FontAwesomeIcon icon={faShieldAlt} className="color-txt" />
-              </ListItemIcon>
-              <ListItemText primary={"Traits"} className="color-txt" />
-            </ListItem>
-            <Divider />
-            <ListItem button key={"feats"} onClick={() => onChange("feats")}>
-              <ListItemIcon>
-                <FontAwesomeIcon icon={faFistRaised} className="color-txt" />
-              </ListItemIcon>
-              <ListItemText primary={"Feats"} className="color-txt" />
-            </ListItem>
-            <Divider />
+
             <ListItem
               button
+              className="menu-box"
+              key={"spells"}
+              onClick={() => onChange("spells")}
+            >
+              <FontAwesomeIcon icon={faMagic} className="menu-align" />
+
+              <span className="menu-align">Spells</span>
+            </ListItem>
+
+            <ListItem
+              button
+              className="menu-box"
+              key={"traits"}
+              onClick={() => onChange("traits")}
+            >
+              <FontAwesomeIcon icon={faShieldAlt} className="menu-align" />
+
+              <span className="menu-align">Traits</span>
+            </ListItem>
+
+            <ListItem
+              button
+              className="menu-box"
+              key={"feats"}
+              onClick={() => onChange("feats")}
+            >
+              <FontAwesomeIcon icon={faFistRaised} className="menu-align" />
+
+              <span className="menu-align">Feats</span>
+            </ListItem>
+
+            <ListItem
+              button
+              className="menu-box"
+              key={"beasts"}
+              onClick={() => onChange("beasts")}
+            >
+              <FontAwesomeIcon icon={faPaw} className="menu-align" />
+
+              <span className="menu-align">Beasts</span>
+            </ListItem>
+
+            <ListItem
+              button
+              className="menu-box"
               key={"spell book"}
               onClick={() => onChange("spell book")}
             >
-              <ListItemIcon>
-                <FontAwesomeIcon icon={faBookDead} className="color-txt" />
-              </ListItemIcon>
-              <ListItemText primary={"Spell Book"} className="color-txt" />
+              <FontAwesomeIcon icon={faJournalWhills} className="menu-align" />
+
+              <span className="menu-align">Spell Book</span>
             </ListItem>
           </List>
         </div>
