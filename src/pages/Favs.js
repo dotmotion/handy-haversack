@@ -6,6 +6,7 @@ import SpellModal from "../components/ui/SpellModal";
 import SpellCard from "../components/ui/SpellCard";
 
 import Slide from "@material-ui/core/Slide";
+import Dialog from "@material-ui/core/Dialog";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
@@ -45,7 +46,6 @@ class Favs extends Component {
       spells: this.props.spells,
       selected: null,
       modal: false,
-      filter: "spells",
       spellsByLevel: {}
     };
   }
@@ -84,13 +84,21 @@ class Favs extends Component {
       <div className="list">
         <div className="list-body">
           {modal && (
-            <SpellModal
-              spell={selected}
+            <Dialog
+              fullScreen
+              keepMounted
               open={modal}
-              close={this.closeModal}
-              trans={Transition}
-              del={del}
-            />
+              onClose={this.closeModal}
+              TransitionComponent={Transition}
+            >
+              <SpellModal
+                spell={selected}
+                open={modal}
+                close={this.closeModal}
+                trans={Transition}
+                del={del}
+              />
+            </Dialog>
           )}
 
           {keys.map(lvl => {
