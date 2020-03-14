@@ -85,12 +85,8 @@ function Beasts(props) {
       "7": [],
       "8": []
     };
-    console.log("orderBeasts -> beastObj", beastObj);
     beasts.map(beast => {
       const chal = beast.cr;
-      console.log("Beasts -> chal", chal);
-      console.log("Beasts -> name", beast.name);
-      console.info("-------------------------------");
       beastObj[chal].push(beast);
       return null;
     });
