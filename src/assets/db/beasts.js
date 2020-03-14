@@ -18,12 +18,12 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Athletics",
+        name: "Athletics",
         url: "/api/proficiencies/skill-athletics",
         value: 5
       },
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       }
@@ -375,7 +375,7 @@ export const beasts = [
     charisma: 5,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 4
       }
@@ -508,7 +508,7 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       }
@@ -634,12 +634,12 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 4
       }
@@ -760,7 +760,7 @@ export const beasts = [
     charisma: 2,
     proficiencies: [
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 2
       }
@@ -815,7 +815,7 @@ export const beasts = [
     charisma: 5,
     proficiencies: [
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 2
       }
@@ -919,12 +919,12 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 4
       }
@@ -1034,7 +1034,7 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 4
       }
@@ -1289,12 +1289,12 @@ export const beasts = [
     charisma: 3,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 1
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 3
       }
@@ -1336,12 +1336,12 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Athletics",
+        name: "Athletics",
         url: "/api/proficiencies/skill-athletics",
         value: 9
       },
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 4
       }
@@ -1646,7 +1646,7 @@ export const beasts = [
     charisma: 3,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 2
       }
@@ -1714,7 +1714,7 @@ export const beasts = [
     charisma: 3,
     proficiencies: [
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 4
       }
@@ -1769,7 +1769,7 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 5
       }
@@ -1848,7 +1848,7 @@ export const beasts = [
     charisma: 10,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 4
       }
@@ -1928,7 +1928,7 @@ export const beasts = [
     charisma: 10,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 4
       }
@@ -2057,12 +2057,12 @@ export const beasts = [
     charisma: 3,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 2
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 3
       }
@@ -2185,7 +2185,7 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       }
@@ -2302,12 +2302,12 @@ export const beasts = [
     charisma: 4,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 4
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 5
       }
@@ -2380,12 +2380,12 @@ export const beasts = [
     charisma: 10,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 5
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 4
       }
@@ -2450,7 +2450,7 @@ export const beasts = [
     charisma: 3,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 2
       }
@@ -2730,7 +2730,7 @@ export const beasts = [
     charisma: 5,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       }
@@ -2793,7 +2793,7 @@ export const beasts = [
     charisma: 4,
     proficiencies: [
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 7
       }
@@ -2936,7 +2936,7 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       }
@@ -3067,12 +3067,12 @@ export const beasts = [
     charisma: 5,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 5
       }
@@ -3131,12 +3131,12 @@ export const beasts = [
     charisma: 4,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 7
       }
@@ -3266,7 +3266,7 @@ export const beasts = [
     charisma: 6,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 4
       }
@@ -3325,7 +3325,7 @@ export const beasts = [
     charisma: 4,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 2
       }
@@ -3388,7 +3388,7 @@ export const beasts = [
     charisma: 5,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       }
@@ -3447,7 +3447,7 @@ export const beasts = [
     charisma: 6,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       }
@@ -3511,7 +3511,7 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       }
@@ -3578,12 +3578,12 @@ export const beasts = [
     charisma: 8,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 6
       }
@@ -3788,7 +3788,7 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       }
@@ -3905,12 +3905,12 @@ export const beasts = [
     charisma: 4,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 2
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 4
       }
@@ -3985,12 +3985,12 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 3
       }
@@ -4054,12 +4054,12 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 4
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 6
       }
@@ -4139,12 +4139,12 @@ export const beasts = [
     charisma: 5,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 4
       }
@@ -4248,7 +4248,7 @@ export const beasts = [
     charisma: 7,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       }
@@ -4484,7 +4484,7 @@ export const beasts = [
     charisma: 6,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       }
@@ -4543,7 +4543,7 @@ export const beasts = [
     charisma: 4,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 2
       }
@@ -4705,12 +4705,12 @@ export const beasts = [
     charisma: 8,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 6
       }
@@ -4870,7 +4870,7 @@ export const beasts = [
     charisma: 2,
     proficiencies: [
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 4
       }
@@ -4984,12 +4984,12 @@ export const beasts = [
     charisma: 8,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 6
       }
@@ -5138,7 +5138,7 @@ export const beasts = [
     charisma: 9,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 4
       }
@@ -5211,7 +5211,7 @@ export const beasts = [
     charisma: 4,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       }
@@ -5328,12 +5328,12 @@ export const beasts = [
     charisma: 3,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 5
       }
@@ -5392,12 +5392,12 @@ export const beasts = [
     charisma: 6,
     proficiencies: [
       {
-        name: "Skill: Perception",
+        name: "Perception",
         url: "/api/proficiencies/skill-perception",
         value: 3
       },
       {
-        name: "Skill: Stealth",
+        name: "Stealth",
         url: "/api/proficiencies/skill-stealth",
         value: 4
       }
