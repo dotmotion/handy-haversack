@@ -54,15 +54,14 @@ export default function SpellModal(props) {
             ? `0 (Cantrip) - ${spell.school.name}`
             : `${spell.level} - ${spell.school.name}`}
         </div>
-        <div className="dual-box">
-          <div className="spell-box">
-            <span className="bold">{"Cast time: "}</span>
-            {spell.casting_time}
-          </div>
-          <div className="spell-box">
-            <span className="bold">{"Range: "}</span>
-            {spell.range}
-          </div>
+
+        <div className="spell-box">
+          <span className="bold">{"Cast time: "}</span>
+          {spell.casting_time}
+        </div>
+        <div className="spell-box">
+          <span className="bold">{"Range: "}</span>
+          {spell.range}
         </div>
 
         <div className="dual-box">
