@@ -2,12 +2,12 @@ import React, { useState, useContext } from "react";
 
 import { GlobalContext } from "../context/GlobalState";
 
-import SpellModal from "../components/ui/SpellModal";
-import FilterFabS from "../components/ui/FilterFabS";
-import ExpPanel from "../components/ui/ExpPanel";
-import SpellCard from "../components/ui/SpellCard";
+import BeastModal from "../components/ui/BeastModal";
+import FilterFabB from "../components/ui/FilterFabB";
+import ExpPanel2 from "../components/ui/ExpPanel2";
 
 import Dialog from "@material-ui/core/Dialog";
+import Paper from "@material-ui/core/Paper";
 import Slide from "@material-ui/core/Slide";
 import { IconButton } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
@@ -44,24 +44,18 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" in={true} ref={ref} {...props} />;
 });
 
-function Search(props) {
-  const { classes, add } = props;
+function Beasts(props) {
+  const { classes } = props;
 
-  const {
-    spells,
-    lists: { classList, levelList, schoolList }
-  } = useContext(GlobalContext);
+  const { beasts } = useContext(GlobalContext);
 
   const [selected, setSelected] = useState(null);
   const [modal, setModal] = useState(false);
-  const [filter, setFilter] = useState("spells");
+  const [filter, setFilter] = useState("name");
   const [search, setSearch] = useState("");
 
-  const classNames = Object.keys(classList);
-  const schoolNames = Object.keys(schoolList);
-
-  const openModal = async spell => {
-    setSelected(spell);
+  const openModal = beast => {
+    setSelected(beast);
     setModal(true);
   };
 
@@ -72,29 +66,72 @@ function Search(props) {
   };
 
   const closeModal = () => {
-    // setSelected(null);
+    setSelected(null);
     setModal(false);
+  };
+
+  const orderBeasts = () => {
+    let beastObj = {
+      "0": [],
+      "1/8": [],
+      "1/4": [],
+      "1/2": [],
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": []
+    };
+    console.log("orderBeasts -> beastObj", beastObj);
+    beasts.map(beast => {
+      const chal = beast.cr;
+      console.log("Beasts -> chal", chal);
+      console.log("Beasts -> name", beast.name);
+      console.info("-------------------------------");
+      beastObj[chal].push(beast);
+      return null;
+    });
+    return beastObj;
   };
 
   const onSearchChange = e => {
     setSearch(e ? e.target.value : "");
   };
 
-  let filteredSpells = spells.filter(spell => {
-    return spell.name.toLowerCase().includes(search.toLowerCase());
+  let filteredBeasts = beasts.filter(beast => {
+    return beast.name.toLowerCase().includes(search.toLowerCase());
   });
+
+  const orderedBeasts = orderBeasts();
+  const crList = [
+    "0",
+    "1/8",
+    "1/4",
+    "1/2",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+  ];
 
   return (
     <>
       <div className="list">
-        <FilterFabS setFilter={filterChange} />
+        <FilterFabB setFilter={filterChange} />
         <header className="search-header">
-          {filter === "spells" && (
+          {filter === "name" && (
             <TextField
               placeholder="Search"
               type="search"
-              fullWidth
               variant="outlined"
+              fullWidth
               InputProps={{
                 className: classes.input,
                 endAdornment: (
@@ -127,42 +164,27 @@ function Search(props) {
               onClose={closeModal}
               TransitionComponent={Transition}
             >
-              <SpellModal spell={selected} close={closeModal} add={add} />
+              <BeastModal beast={selected} close={closeModal} />
             </Dialog>
           )}
-          {filter === "spells" &&
-            filteredSpells.map(spell => (
-              <SpellCard key={spell.name} spell={spell} openModal={openModal} />
+          {filter === "name" &&
+            filteredBeasts.map(beast => (
+              <Paper
+                elevation={5}
+                className="list-paper2"
+                onClick={() => openModal(beast)}
+                key={beast.name}
+              >
+                {beast.name}
+              </Paper>
             ))}
 
-          {filter === "class" &&
-            classNames.map(c => (
-              <ExpPanel
+          {filter === "cr" &&
+            crList.map(c => (
+              <ExpPanel2
                 key={c}
-                name={c}
-                type={"class"}
-                spells={classList[c]}
-                onClick={openModal}
-              />
-            ))}
-
-          {filter === "school" &&
-            schoolNames.map(s => (
-              <ExpPanel
-                key={s}
-                name={s}
-                type={"school"}
-                spells={schoolList[s]}
-                onClick={openModal}
-              />
-            ))}
-
-          {filter === "level" &&
-            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(l => (
-              <ExpPanel
-                key={l}
-                name={l === 0 ? "Cantrips" : `Level ${l}`}
-                spells={levelList[l]}
+                cr={c}
+                beasts={orderedBeasts[c]}
                 onClick={openModal}
               />
             ))}
@@ -172,4 +194,4 @@ function Search(props) {
   );
 }
 
-export default withStyles(styles)(Search);
+export default withStyles(styles)(Beasts);

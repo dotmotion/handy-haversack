@@ -40,7 +40,7 @@ const styles = {
       color: "#fff"
     },
     "& .MuiInputBase-input": {
-      color: "var(--txt2)"
+      color: "var(--txt)"
     },
     "& .MuiInput-underline:after": {
       borderBottomColor: "var(--txt2)"
@@ -52,6 +52,7 @@ const styles = {
   exp: { borderRadius: 8 },
   input: {
     color: "var(--txt2)",
+    backgroundColor: "var(--dark)",
     fontWeight: 600,
     fontSize: 20,
     margin: 5
@@ -84,6 +85,7 @@ function Feats(props) {
           <TextField
             placeholder="Search"
             type="search"
+            variant="outlined"
             fullWidth
             InputProps={{
               className: classes.input,
@@ -122,7 +124,11 @@ function Feats(props) {
                 <Typography className={classes.heading}>{feat.name}</Typography>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails
-                style={{ flexDirection: "column", fontSize: "14px" }}
+                style={{
+                  flexDirection: "column",
+                  fontSize: "14px",
+                  color: "white"
+                }}
               >
                 {feat.preq && (
                   <>

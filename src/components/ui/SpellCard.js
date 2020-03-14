@@ -1,120 +1,57 @@
 import React from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
-import Dialog from "@material-ui/core/Dialog";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import CloseIcon from "@material-ui/icons/Close";
-import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
+// import Divider from "@material-ui/core/Divider";
 
-const useStyles = makeStyles(theme => ({
-  appBar: {
-    position: "relative",
-    backgroundColor: "var(--main)"
-  },
-  title: {
-    marginLeft: -theme.spacing(2),
-    flex: 1,
-    textAlign: "center"
-  }
-}));
-
-export default function SpellCard2(props) {
-  const { spell, open, trans, add, del } = props;
-  const classes = useStyles();
+export default function SpellCard(props) {
+  const { spell, openModal } = props;
+  const cast = spell.casting_time.includes("action")
+    ? spell.casting_time.replace(/^[\s\d]+/, "")
+    : spell.casting_time;
 
   return (
-    <Dialog
-      fullScreen
-      open={open}
-      onClose={props.close}
-      TransitionComponent={trans}
+    <Paper
+      elevation={5}
+      className="list-paper"
+      onClick={() => openModal(spell)}
     >
-      <AppBar className={classes.appBar}>
-        <Toolbar>
-          <IconButton
-            edge="start"
-            color="inherit"
-            onClick={props.close}
-            aria-label="close"
-          >
-            <CloseIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            {spell.name}
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <div className="spell-card-content">
-        <div className="spell-box">
-          <span className="bold">{"Level: "}</span>
-          {spell.level === 0 ? "0 (Cantrip)" : spell.level}
+      {/* <span className="card-title">{spell.name}</span> */}
+      <div className="text-divider txt2">{spell.name}</div>
+      {/* <Divider style={{ margin: 2 }} /> */}
+      <div className="card-deets">
+        <div className="card-section">
+          <span>Level</span>
+          <span className="card-txt">{spell.level}</span>
         </div>
-        <div className="spell-box">
-          <span className="bold">{"Cast time: "}</span>
-          {spell.casting_time}
+        <div className="card-section">
+          <span>Range</span>
+          <span className="card-txt">{spell.range}</span>
         </div>
-        <div className="spell-box">
-          <span className="bold">{"Range: "}</span>
-          {spell.range}
+        <div className="card-section">
+          <span>Cast</span>
+          <span className="card-txt">{cast}</span>
         </div>
-        <div className="spell-box">
-          <span className="bold">{"Components: "}</span>
-          {spell.components}
+        <div className="card-section">
+          <span>Comp.</span>
+          <span className="card-txt">{`${spell.components}`}</span>
         </div>
-        <div className="spell-box">
-          <span className="bold">{"Duration: "}</span>
-          {spell.duration}
+        <div className="card-section">
+          <span>Duration</span>
+          <span className="card-txt">{spell.duration}</span>
         </div>
-        <div className="spell-box">
-          <span className="bold">{"School: "}</span>
-          {spell.school.name}
-        </div>
-        <div className="spell-box">
-          {spell.desc.map(section => (
-            <p key={section}>{section}</p>
-          ))}
-          {spell.higher_level && (
-            <>
-              <p>
-                <span className="bold">{"At Higher Levels. "}</span>{" "}
-                {spell.higher_level}
-              </p>
-            </>
+        <div className="card-circles">
+          {spell.ritual && (
+            <div className="card-circle">
+              <span>{`R`}</span>
+            </div>
           )}
-          {spell.material && (
-            <p>
-              <span className="bold">{"Material: "}</span>
-              {spell.material}
-            </p>
+          {spell.concentration && (
+            <div className="card-circle">
+              <span>{`C`}</span>
+            </div>
           )}
         </div>
-        {add && (
-          <Button
-            onClick={() => add(spell)}
-            variant="contained"
-            fullWidth
-            className="spell-button"
-            style={{ borderBottom: "2px solid #3db598" }}
-          >
-            Add to spellbook
-          </Button>
-        )}
-        {del && (
-          <Button
-            onClick={() => del(spell)}
-            variant="contained"
-            fullWidth
-            className="spell-button"
-            style={{ borderBottom: "2px solid red" }}
-          >
-            Remove from spellbook
-          </Button>
-        )}
-        <div className="page">{`[ PHB ${spell.page} ]`}</div>
       </div>
-    </Dialog>
+    </Paper>
   );
 }

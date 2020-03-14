@@ -28,6 +28,7 @@ const styles = {
   },
   input: {
     color: "var(--txt2)",
+    backgroundColor: "var(--dark)",
     fontWeight: 600,
     fontSize: 20,
     margin: 5
@@ -75,6 +76,7 @@ function Search(props) {
             placeholder="Search"
             type="search"
             fullWidth
+            variant="outlined"
             InputProps={{
               className: classes.input,
               endAdornment: (
@@ -109,7 +111,7 @@ function Search(props) {
           {filteredTraits.map(feat => (
             <Paper
               elevation={5}
-              className="list-paper"
+              className="list-paper2"
               onClick={() => openModal(feat)}
               key={feat.name}
             >

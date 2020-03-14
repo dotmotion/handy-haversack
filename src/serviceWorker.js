@@ -7,9 +7,6 @@
 // existing tabs open on the page have been closed, since previously cached
 // resources are updated in the background.
 
-// To learn more about the benefits of this model and instructions on how to
-// opt-in, read https://bit.ly/CRA-PWA
-
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
     // [::1] is the IPv6 localhost address.
@@ -121,9 +118,7 @@ function checkValidServiceWorker(swUrl, config) {
       }
     })
     .catch(() => {
-      console.log(
-        "No internet connection found. App is running in offline mode."
-      );
+      console.log("No internet connection. App is running in offline mode.");
     });
 }
 

@@ -2,9 +2,9 @@ import React, { Component } from "react";
 
 import { sortByLevel } from "../utils/lib";
 
+import SpellModal from "../components/ui/SpellModal";
 import SpellCard from "../components/ui/SpellCard";
 
-import Paper from "@material-ui/core/Paper";
 import Slide from "@material-ui/core/Slide";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -84,7 +84,7 @@ class Favs extends Component {
       <div className="list">
         <div className="list-body">
           {modal && (
-            <SpellCard
+            <SpellModal
               spell={selected}
               open={modal}
               close={this.closeModal}
@@ -96,19 +96,16 @@ class Favs extends Component {
           {keys.map(lvl => {
             const title = lvl === "0" ? `Cantrips` : `Level ${lvl}`;
             return (
-              <>
-                <h5 style={{ textAlign: "center" }}>{title}</h5>
+              <React.Fragment key={lvl}>
+                <div className="text-divider">{title}</div>
                 {spellsByLevel[lvl].map(spell => (
-                  <Paper
-                    elevation={5}
-                    className="list-paper2"
-                    onClick={() => this.openModal(spell)}
+                  <SpellCard
                     key={spell.name}
-                  >
-                    {spell.name}
-                  </Paper>
+                    spell={spell}
+                    openModal={() => this.openModal(spell)}
+                  />
                 ))}
-              </>
+              </React.Fragment>
             );
           })}
         </div>

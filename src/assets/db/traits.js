@@ -26,7 +26,7 @@ export const traits = [
     name: "Unarmored Defense",
     level: 1,
     desc: [
-      "While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit."
+      "While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution (Barbarian) or Wisdom (Monk) modifier. Only a Barbarian can use a shield and still gain this benefit."
     ],
     url: "/api/features/unarmored-defense"
   },

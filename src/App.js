@@ -10,17 +10,19 @@ import {
   faFistRaised,
   faShieldAlt,
   faMagic,
-  faBookDead,
-  faUser
+  // faBookDead,
+  faJournalWhills,
+  faUser,
+  faPaw
 } from "@fortawesome/free-solid-svg-icons";
 
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import Spells from "./pages/Spells";
 import Traits from "./pages/Traits";
+import Beasts from "./pages/Beasts";
 import Feats from "./pages/Feats";
 import Favs from "./pages/Favs";
 import Menu from "./pages/Menu";
@@ -107,82 +109,115 @@ class App extends Component {
             onClose={this.toggleDrawer}
             onOpen={this.toggleDrawer}
           >
+            <div
+              className="menu-header"
+              onClick={() => this.onChange("welcome")}
+            >
+              <img src={Eye} alt="HEXER" className="menu-icon" />
+              <span>Ḥ̨̢̤̥̣̯͇͍̒͋̋̾͗̿͛̃Ẻ̸̹̼̰̖̬̩̝̈́̆̈̀̋́̓X̷̧̥̖̠̪͚̿͌̔́̚͞Ė̶̢̛̠͙͚̟͌̈́͒R̸̙̘̣̝̩̓̊͛̒͢͜͡</span>
+            </div>
             <List
               onClick={this.toggleDrawer}
               onKeyDown={this.toggleDrawer}
               style={{
                 height: "100%",
                 display: "flex",
-                flexDirection: "column"
+                flexDirection: "column",
+                justifyContent: "space-between"
               }}
             >
-              <div
-                className="menu-header"
-                onClick={() => this.onChange("welcome")}
-              >
-                <img src={Eye} alt="HEXER" className="menu-icon" />
-                <span>Ḥ̨̢̤̥̣̯͇͍̒͋̋̾͗̿͛̃Ẻ̸̹̼̰̖̬̩̝̈́̆̈̀̋́̓X̷̧̥̖̠̪͚̿͌̔́̚͞Ė̶̢̛̠͙͚̟͌̈́͒R̸̙̘̣̝̩̓̊͛̒͢͜͡</span>
+              <div>
+                <ListItem
+                  button
+                  key={"character"}
+                  onClick={() => this.onChange("character")}
+                >
+                  <ListItemIcon>
+                    <FontAwesomeIcon icon={faUser} className="color-txt" />
+                  </ListItemIcon>
+                  <span className="color-txt">Character</span>
+                </ListItem>
+                <Divider />
+                <ListItem
+                  button
+                  key={"spells"}
+                  onClick={() => this.onChange("spells")}
+                >
+                  <ListItemIcon>
+                    <FontAwesomeIcon icon={faMagic} className="color-txt" />
+                  </ListItemIcon>
+                  <span className="color-txt">Spells</span>
+                </ListItem>
+                <Divider />
+                <ListItem
+                  button
+                  key={"traits"}
+                  onClick={() => this.onChange("traits")}
+                >
+                  <ListItemIcon>
+                    <FontAwesomeIcon icon={faShieldAlt} className="color-txt" />
+                  </ListItemIcon>
+                  <span className="color-txt">Traits</span>
+                </ListItem>
+                <Divider />
+                <ListItem
+                  button
+                  key={"feats"}
+                  onClick={() => this.onChange("feats")}
+                >
+                  <ListItemIcon>
+                    <FontAwesomeIcon
+                      icon={faFistRaised}
+                      className="color-txt"
+                    />
+                  </ListItemIcon>
+                  <span className="color-txt">Feats</span>
+                </ListItem>
+                <Divider />
+                <ListItem
+                  button
+                  key={"beasts"}
+                  onClick={() => this.onChange("beasts")}
+                >
+                  <ListItemIcon>
+                    <FontAwesomeIcon icon={faPaw} className="color-txt" />
+                  </ListItemIcon>
+                  <span className="color-txt">Beasts</span>
+                </ListItem>
               </div>
-              <ListItem
-                button
-                key={"character"}
-                onClick={() => this.onChange("character")}
-              >
-                <ListItemIcon>
-                  <FontAwesomeIcon icon={faUser} className="color-txt" />
-                </ListItemIcon>
-                <ListItemText primary={"Character"} className="color-txt" />
-              </ListItem>
-              <Divider />
-              <ListItem
-                button
-                key={"spells"}
-                onClick={() => this.onChange("spells")}
-              >
-                <ListItemIcon>
-                  <FontAwesomeIcon icon={faMagic} className="color-txt" />
-                </ListItemIcon>
-                <ListItemText primary={"Spells"} className="color-txt" />
-              </ListItem>
-              <Divider />
-              <ListItem
-                button
-                key={"traits"}
-                onClick={() => this.onChange("traits")}
-              >
-                <ListItemIcon>
-                  <FontAwesomeIcon icon={faShieldAlt} className="color-txt" />
-                </ListItemIcon>
-                <ListItemText primary={"Traits"} className="color-txt" />
-              </ListItem>
-              <Divider />
-              <ListItem
-                button
-                key={"feats"}
-                onClick={() => this.onChange("feats")}
-              >
-                <ListItemIcon>
-                  <FontAwesomeIcon icon={faFistRaised} className="color-txt" />
-                </ListItemIcon>
-                <ListItemText primary={"Feats"} className="color-txt" />
-              </ListItem>
-              <Divider />
-              <ListItem
-                button
-                key={"spell book"}
-                onClick={() => this.onChange("spell book")}
-              >
-                <ListItemIcon>
-                  <FontAwesomeIcon icon={faBookDead} className="color-txt" />
-                </ListItemIcon>
-                <ListItemText primary={"Spell Book"} className="color-txt" />
-              </ListItem>
+              <div style={{ margin: "15px", border: "4px groove var(--txt2)" }}>
+                <ListItem
+                  button
+                  key={"spell book"}
+                  onClick={() => this.onChange("spell book")}
+                >
+                  <ListItemIcon>
+                    <FontAwesomeIcon
+                      icon={faJournalWhills}
+                      className="color-txt"
+                    />
+                  </ListItemIcon>
+                  <span className="color-txt">Spell Book</span>
+                </ListItem>
+                {/* <Divider />
+                <ListItem
+                  button
+                  key={"spell book"}
+                  onClick={() => this.onChange("spell book")}
+                >
+                  <ListItemIcon>
+                    <FontAwesomeIcon icon={faBookDead} className="color-txt" />
+                  </ListItemIcon>
+                  <ListItemText primary={"Beastiary"} className="color-txt" />
+                </ListItem> */}
+              </div>
             </List>
           </SwipeableDrawer>
           <main className="Main">
             {page === "welcome" && <Menu onChange={this.onChange} />}
             {page === "character" && <CharacterContainer />}
             {page === "spells" && <Spells add={this.addFav} />}
+            {page === "beasts" && <Beasts />}
             {page === "feats" && <Feats />}
             {page === "traits" && <Traits />}
             {page === "spell book" && (
