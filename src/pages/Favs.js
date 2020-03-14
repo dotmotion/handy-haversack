@@ -3,9 +3,8 @@ import React, { Component } from "react";
 import { sortByLevel } from "../utils/lib";
 
 import SpellModal from "../components/ui/SpellModal";
-import SpellCard from "../components/SpellCard";
+import SpellCard from "../components/ui/SpellCard";
 
-import Typography from "@material-ui/core/Typography";
 import Slide from "@material-ui/core/Slide";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -97,10 +96,8 @@ class Favs extends Component {
           {keys.map(lvl => {
             const title = lvl === "0" ? `Cantrips` : `Level ${lvl}`;
             return (
-              <>
-                <Typography variant="h6" style={{ textAlign: "center" }}>
-                  {title}
-                </Typography>
+              <React.Fragment key={lvl}>
+                <div className="text-divider">{title}</div>
                 {spellsByLevel[lvl].map(spell => (
                   <SpellCard
                     key={spell.name}
@@ -108,7 +105,7 @@ class Favs extends Component {
                     openModal={() => this.openModal(spell)}
                   />
                 ))}
-              </>
+              </React.Fragment>
             );
           })}
         </div>
